@@ -1,13 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import { CardImg, CardInfo, CardInfoText, CardTitle, CardWrap } from "./style";
 
 const ShowCard = ({ data }) => {
-  console.log(data);
+  const navigate = useNavigate();
 
   const genres = data.genres.join(", ");
 
   return (
-    <CardWrap>
+    <CardWrap onClick={() => navigate(`/tv-show/${data.id}`)}>
       <CardImg url={data.image.original}>
         <CardTitle>{data.name}</CardTitle>
         <CardInfo>

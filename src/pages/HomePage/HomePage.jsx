@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import useSWR from "swr";
+
 import ShowCard from "../../components/ShowCard";
+
 import { requestFetcher } from "../../helpers/requestFetcher";
+
 import { ShowListWrap } from "./style";
 
 const HomePage = () => {
