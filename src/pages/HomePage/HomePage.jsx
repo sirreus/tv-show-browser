@@ -1,32 +1,26 @@
 import React, { useState } from "react";
-import useSWR from "swr";
 
 import ShowCard from "../../components/ShowCard";
 
-import { requestFetcher } from "../../helpers/requestFetcher";
-
-import { ShowListWrap } from "./style";
+import { PageWrap, ShowListWrap } from "./style";
+import api from "../../api";
 
 const HomePage = () => {
-  const BASE_URL = "https://api.tvmaze.com";
   const defaultPaginationPage = 0;
 
   const [paginationPage, setPaginationPage] = useState(defaultPaginationPage);
 
-  const { data, error } = useSWR(
-    `${BASE_URL}/shows?page=${paginationPage}`,
-    requestFetcher
-  );
+  const { data, error } = api.getTvShowList({ paginationPage });
 
   if (error) return <>Something went wrong!...please reload a page.</>;
 
   return (
-    <>
-      <h2>HomePage</h2>
+    <PageWrap>
+      <h2>Welcome to GalaxyPlex!</h2>
       <ShowListWrap>
         {data && data.map((show) => <ShowCard data={show} key={show.id} />)}
       </ShowListWrap>
-    </>
+    </PageWrap>
   );
 };
 

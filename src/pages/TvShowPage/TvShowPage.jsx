@@ -1,27 +1,62 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useSWR from "swr";
-
-import { requestFetcher } from "../../helpers/requestFetcher";
+import api from "../../api";
+import {
+  PageWrap,
+  ShowCover,
+  ShowDetails,
+  ShowInfo,
+  ShowTitle,
+  ShowDetailsText,
+  ShowSeasonLink,
+  ShowSeasonList,
+  GoBackButton,
+  PageHeader,
+} from "./style";
 
 const TvShowPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { data, error } = useSWR(
-    `https://api.tvmaze.com/shows/${id}/seasons`,
-    requestFetcher
-  );
+  const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
+    showId: id,
+  });
+  const { data: showSeasons, error: showSeasonsError } = api.getTvShowSeasons({
+    showId: id,
+  });
 
-  if (error) return <>Something went wrong!...please reload a page.</>;
+  if (showInfoError) return <>Something went wrong!...please reload a page.</>;
 
-  console.log(data);
+  console.log(showInfo);
+  console.log(showSeasons);
+
+  const genres = showInfo?.genres.join(", ");
 
   return (
-    <>
-      <button onClick={() => navigate("/")}>go back</button>
-      TvShowPage
-    </>
+    <PageWrap>
+      <PageHeader>
+        <GoBackButton onClick={() => navigate("/")} />
+        <ShowTitle>{showInfo?.name}</ShowTitle>
+      </PageHeader>
+
+      <ShowInfo>
+        <ShowCover url={showInfo?.image.original} />
+        <ShowDetails>
+          <ShowDetailsText>{genres}</ShowDetailsText>
+          <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>
+          <ShowDetailsText>{`rating: ${showInfo?.rating.average}`}</ShowDetailsText>
+          {showSeasons && (
+            <ShowSeasonList>
+              {showSeasons.map((season) => (
+                <ShowSeasonLink onClick={() => navigate()} key={season.id}>
+                  {`Season ${season?.number}`}
+                </ShowSeasonLink>
+              ))}
+            </ShowSeasonList>
+          )}
+        </ShowDetails>
+      </ShowInfo>
+    </PageWrap>
   );
 };
 

@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 export const CardWrap = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 320px;
+  min-width: 240px;
   box-shadow: 0 0 8px #ccc;
   border-radius: 8px;
   opacity: 0.7;
