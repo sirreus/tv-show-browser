@@ -1,18 +1,23 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../api";
+
 import {
   PageWrap,
-  ShowCover,
+  PageHeader,
+  GoBackButton,
+  PageTitle,
+  InfoBlock,
+  Cover,
+} from "../../globalStyles";
+import {
   ShowDetails,
-  ShowInfo,
-  ShowTitle,
   ShowDetailsText,
   ShowSeasonLink,
   ShowSeasonList,
-  GoBackButton,
-  PageHeader,
 } from "./style";
+
+import routes from "../../routes";
 
 const TvShowPage = () => {
   const navigate = useNavigate();
@@ -35,27 +40,33 @@ const TvShowPage = () => {
   return (
     <PageWrap>
       <PageHeader>
-        <GoBackButton onClick={() => navigate("/")} />
-        <ShowTitle>{showInfo?.name}</ShowTitle>
+        <GoBackButton onClick={() => navigate(routes.main)} />
+        <PageTitle>{showInfo?.name}</PageTitle>
       </PageHeader>
 
-      <ShowInfo>
-        <ShowCover url={showInfo?.image.original} />
+      <InfoBlock>
+        <Cover url={showInfo?.image.original} />
         <ShowDetails>
           <ShowDetailsText>{genres}</ShowDetailsText>
           <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>
           <ShowDetailsText>{`rating: ${showInfo?.rating.average}`}</ShowDetailsText>
-          {showSeasons && (
+          {showSeasonsError && <>The list of seasons not loaded</>}
+          {showSeasons && !showSeasonsError && (
             <ShowSeasonList>
               {showSeasons.map((season) => (
-                <ShowSeasonLink onClick={() => navigate()} key={season.id}>
+                <ShowSeasonLink
+                  onClick={() =>
+                    navigate(`/tv-show/${id}/season/${season.number}`)
+                  }
+                  key={season.id}
+                >
                   {`Season ${season?.number}`}
                 </ShowSeasonLink>
               ))}
             </ShowSeasonList>
           )}
         </ShowDetails>
-      </ShowInfo>
+      </InfoBlock>
     </PageWrap>
   );
 };

@@ -5,18 +5,18 @@ import { createBrowserHistory } from "history";
 import HomePage from "./HomePage";
 import TvShowPage from "./TvShowPage";
 import TvShowSeasonPage from "./TvShowSeasonPage";
+import TvShowEpisodePage from "./TvShowEpisodePage";
+import routes from "../routes";
 
 const history = createBrowserHistory();
 
 const Router = () => {
   return (
     <Routes history={history}>
-      <Route path="/" element={<HomePage />} />
-      <Route path="tv-show/:id" element={<TvShowPage />} />
-      <Route
-        path="/tv-show/:name/season/:seasonId"
-        element={<TvShowSeasonPage />}
-      />
+      <Route path={routes.main} element={<HomePage />} />
+      <Route path={routes.tvShow} element={<TvShowPage />} />
+      <Route path={routes.tvShowSeason} element={<TvShowSeasonPage />} />
+      <Route path={routes.tvShowEpisode} element={<TvShowEpisodePage />} />
     </Routes>
   );
 };
