@@ -5,8 +5,8 @@ import favoriteFilled from "../../assets/favorite-filled.svg";
 export const CardWrap = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  min-width: 240px;
+  flex-direction: row;
+  width: fit-content;
   box-shadow: 0 0 8px #ccc;
   border-radius: 8px;
   opacity: 0.7;
@@ -26,7 +26,8 @@ export const CardImg = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 240px;
+  width: 160px;
+  height: 180px;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${(p) => p.url});
@@ -59,20 +60,4 @@ export const CardTitle = styled.div`
   background: white;
   color: black;
   opacity: 0.7;
-`;
-
-export const CardInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 8px -8px -8px -8px;
-  padding: 8px;
-  border-radius: 0 0 8px 8px;
-  background: white;
-  color: black;
-  opacity: 0.9;
-`;
-
-export const CardInfoText = styled.div`
-  margin: 4px 0;
 `;

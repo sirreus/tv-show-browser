@@ -3,11 +3,28 @@ import styled from "styled-components/macro";
 export const PageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 1024px;
   margin: 32px auto;
 `;
 
-export const ShowListWrap = styled.div`
+export const FavoriteBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  margin: 32px auto;
+`;
+
+export const FavoritesList = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px 16px;
+
+  max-width: 100%;
+  overflow: auto;
+  white-space: nowrap;
+`;
+
+export const ShowList = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: 240px 240px 240px 240px;
