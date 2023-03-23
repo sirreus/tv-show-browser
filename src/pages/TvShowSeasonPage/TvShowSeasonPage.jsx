@@ -10,14 +10,16 @@ import {
   PageTitle,
   InfoBlock,
   Cover,
+  InfoBlockTitle,
 } from "../../globalStyles";
-import { SeasonEpisodeList, Episode, EpisodeName } from "./style";
+import { SeasonEpisodeList, BoldText, Text } from "./style";
 
 const TvShowSeasonPage = () => {
   const navigate = useNavigate();
-  const { id, seasonId } = useParams();
+  const { id, seasonNumber } = useParams();
 
   const [currentSeason, setCurrentSeason] = useState(null);
+  // const [seasonsEpisodes, setSeasonsEpisodes] = useState(null);
 
   const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
     showId: id,
@@ -27,21 +29,21 @@ const TvShowSeasonPage = () => {
     showId: id,
   });
 
-  const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
-    api.getTvShowSeasonsEpisodes({
-      seasonId,
-    });
-
   useEffect(() => {
-    if (showSeasons && seasonId) {
+    if (showSeasons && seasonNumber) {
       const seasonData = showSeasons.find(
-        (season) => season?.number === Number(seasonId)
+        (season) => season?.number === Number(seasonNumber)
       );
       setCurrentSeason(seasonData);
     }
-  }, [seasonId, showSeasons]);
+  }, [seasonNumber, showSeasons]);
 
-  if (SeasonsEpisodesError || showSeasonsError || showInfoError)
+  const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
+    api.getTvShowSeasonsEpisodes({
+      seasonId: currentSeason?.id,
+    });
+
+  if (showSeasonsError || showInfoError)
     return <>Something went wrong!...please reload a page.</>;
 
   console.log(currentSeason);
@@ -51,33 +53,45 @@ const TvShowSeasonPage = () => {
       <PageHeader>
         <GoBackButton onClick={() => navigate(-1)} />
         <PageTitle>
-          {`${showInfo?.name} / Season ${seasonId} (${
+          {`${showInfo?.name} / Season ${seasonNumber} (${
             seasonsEpisodes && seasonsEpisodes.length
           } Episodes)`}
         </PageTitle>
       </PageHeader>
 
       <InfoBlock>
-        <Cover url={currentSeason?.image.original} />
-        {seasonsEpisodes && (
-          <SeasonEpisodeList>
-            <div>{`Season premiere date: ${currentSeason?.premiereDate}`}</div>
-            {seasonsEpisodes.map((episode) => (
-              <div key={episode?.number}>
-                <Episode
-                  onClick={() =>
-                    navigate(
-                      `/tv-show/${id}/season/${seasonId}/episode/${episode?.number}`
-                    )
-                  }
-                >
-                  {`Episode ${episode?.number}:`}
-                  <EpisodeName>{episode?.name}</EpisodeName>
-                </Episode>
-              </div>
-            ))}
-          </SeasonEpisodeList>
-        )}
+        <Cover url={currentSeason?.image?.original} />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <InfoBlockTitle>
+            <BoldText>
+              {`Season premiere date:`}
+              <Text>{currentSeason?.premiereDate}</Text>
+            </BoldText>
+          </InfoBlockTitle>
+          {seasonsEpisodes && (
+            <SeasonEpisodeList>
+              {seasonsEpisodes.map((episode) => (
+                <div key={episode?.number}>
+                  <BoldText
+                    onClick={() =>
+                      navigate(
+                        `/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
+                      )
+                    }
+                  >
+                    {`Episode ${episode?.number}:`}
+                    <Text>{episode?.name}</Text>
+                  </BoldText>
+                </div>
+              ))}
+            </SeasonEpisodeList>
+          )}
+        </div>
       </InfoBlock>
     </PageWrap>
   );

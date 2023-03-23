@@ -7,15 +7,15 @@ export const SeasonEpisodeList = styled.div`
   padding: 8px;
 `;
 
-export const Episode = styled.div`
+export const BoldText = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: ${(p) => (p.onClick ? "pointer" : "default")}; ;
 `;
 
-export const EpisodeName = styled.span`
+export const Text = styled.span`
   margin-left: 8px;
   font-weight: 400;
 `;

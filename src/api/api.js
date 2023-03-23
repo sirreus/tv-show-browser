@@ -14,11 +14,15 @@ const useGetTvShowSeasons = ({ showId }) =>
 const useGetTvShowSeasonsEpisodes = ({ seasonId }) =>
   useSWR(`${API_BASE_URL}/seasons/${seasonId}/episodes`, requestFetcher);
 
+const useGetTvShowEpisodeInfo = ({ episodeId }) =>
+  useSWR(`${API_BASE_URL}/episodes/${episodeId}`, requestFetcher);
+
 const api = {
   getTvShowList: useGetTvShowList,
   getTvShowInfo: useGetTvShowInfo,
   getTvShowSeasons: useGetTvShowSeasons,
   getTvShowSeasonsEpisodes: useGetTvShowSeasonsEpisodes,
+  getTvShowEpisodeInfo: useGetTvShowEpisodeInfo,
 };
 
 export default api;

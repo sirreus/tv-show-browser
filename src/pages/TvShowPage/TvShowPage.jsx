@@ -32,8 +32,8 @@ const TvShowPage = () => {
 
   if (showInfoError) return <>Something went wrong!...please reload a page.</>;
 
-  console.log(showInfo);
-  console.log(showSeasons);
+  console.log("showInfo", showInfo);
+  console.log("showSeasons", showSeasons);
 
   const genres = showInfo?.genres.join(", ");
 

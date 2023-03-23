@@ -38,11 +38,12 @@ export const PageTitle = styled.h2`
 
 export const InfoBlock = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(p) => (p.vertical ? "column" : "row")};
   justify-content: flex-start;
   box-shadow: 0 0 8px #ccc;
   border-radius: 4px;
   background: whitesmoke;
+  padding: ${(p) => (p.paddingAside ? `0 ${p.paddingAside}px` : null)};
 
   @media (max-width: 800px) {
     flex-direction: column;
@@ -55,8 +56,8 @@ export const InfoBlock = styled.div`
 
 export const Cover = styled.div`
   position: relative;
-  width: 338px;
-  height: 480px;
+  width: ${(p) => (p.fullSize ? "100%" : "338px")};
+  height: ${(p) => (p.height ? `${p.height}px` : "480px")};
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(${(p) => p.url});
@@ -72,4 +73,15 @@ export const Cover = styled.div`
     width: 300px;
     height: 452px;
   }
+`;
+
+export const InfoBlockTitle = styled.div`
+  margin: ${(p) => (p.noMargin ? "0" : "0px 16px")};
+  padding: 8px;
+  ${(p) => p.fontSize && `font-size: ${p.fontSize}px`};
+`;
+
+export const SummaryText = styled.div`
+  padding: 8px;
+  margin-bottom: 16px;
 `;
