@@ -13,6 +13,7 @@ import {
   Cover,
   InfoBlockTitle,
   SummaryText,
+  Alert,
 } from "../../globalStyles";
 import { Airstamp } from "./style";
 
@@ -23,7 +24,7 @@ const TvShowEpisodePage = () => {
   const [seasonId, setSeasonId] = useState(null);
   const [episodeData, setEpisodeData] = useState(null);
 
-  const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
+  const { data: showInfo } = api.getTvShowInfo({
     showId: id,
   });
 
@@ -72,12 +73,18 @@ const TvShowEpisodePage = () => {
       </PageHeader>
 
       <InfoBlock vertical paddingAside={16}>
-        <InfoBlockTitle noMargin fontSize={24}>
-          {episodeData?.name}
-        </InfoBlockTitle>
-        <Airstamp>{formatDate(episodeData?.airstamp)}</Airstamp>
-        <Cover url={episodeData?.image.original} fullSize height={432} />
-        <SummaryText>{getSummaryText()}</SummaryText>
+        {showSeasonsError || SeasonsEpisodesError ? (
+          <Alert>Episode info doesn't loaded!...try to reload a page.</Alert>
+        ) : (
+          <>
+            <InfoBlockTitle noMargin fontSize={24}>
+              {episodeData?.name}
+            </InfoBlockTitle>
+            <Airstamp>{formatDate(episodeData?.airstamp)}</Airstamp>
+            <Cover url={episodeData?.image.original} fullSize height={432} />
+            <SummaryText>{getSummaryText()}</SummaryText>
+          </>
+        )}
       </InfoBlock>
     </PageWrap>
   );

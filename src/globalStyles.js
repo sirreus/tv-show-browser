@@ -42,7 +42,7 @@ export const InfoBlock = styled.div`
   justify-content: flex-start;
   box-shadow: 0 0 8px #ccc;
   border-radius: 4px;
-  background: whitesmoke;
+  background: ghostwhite;
   padding: ${(p) => (p.paddingAside ? `0 ${p.paddingAside}px` : null)};
 
   @media (max-width: 800px) {
@@ -84,4 +84,15 @@ export const InfoBlockTitle = styled.div`
 export const SummaryText = styled.div`
   padding: 8px;
   margin-bottom: 16px;
+`;
+
+export const Alert = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  margin: auto;
+  border: 1px solid #e15959;
+  border-radius: 4px;
+  background: #faf2f2;
+  color: #712c2c;
 `;

@@ -9,6 +9,7 @@ import {
   PageTitle,
   InfoBlock,
   Cover,
+  Alert,
 } from "../../globalStyles";
 import {
   ShowDetails,
@@ -30,11 +31,6 @@ const TvShowPage = () => {
     showId: id,
   });
 
-  if (showInfoError) return <>Something went wrong!...please reload a page.</>;
-
-  console.log("showInfo", showInfo);
-  console.log("showSeasons", showSeasons);
-
   const genres = showInfo?.genres.join(", ");
 
   return (
@@ -44,29 +40,35 @@ const TvShowPage = () => {
         <PageTitle>{showInfo?.name}</PageTitle>
       </PageHeader>
 
-      <InfoBlock>
-        <Cover url={showInfo?.image.original} />
-        <ShowDetails>
-          <ShowDetailsText>{genres}</ShowDetailsText>
-          <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>
-          <ShowDetailsText>{`rating: ${showInfo?.rating.average}`}</ShowDetailsText>
-          {showSeasonsError && <>The list of seasons not loaded</>}
-          {showSeasons && !showSeasonsError && (
-            <ShowSeasonList>
-              {showSeasons.map((season) => (
-                <ShowSeasonLink
-                  onClick={() =>
-                    navigate(`/tv-show/${id}/season/${season.number}`)
-                  }
-                  key={season.id}
-                >
-                  {`Season ${season?.number}`}
-                </ShowSeasonLink>
-              ))}
-            </ShowSeasonList>
-          )}
-        </ShowDetails>
-      </InfoBlock>
+      {showInfoError && (
+        <Alert>The TV Show data doesn't loaded!...try to reload a page.</Alert>
+      )}
+
+      {showInfo && !showInfoError && (
+        <InfoBlock>
+          <Cover url={showInfo?.image.original} />
+          <ShowDetails>
+            <ShowDetailsText>{genres}</ShowDetailsText>
+            <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>
+            <ShowDetailsText>{`rating: ${showInfo?.rating.average}`}</ShowDetailsText>
+            {showSeasonsError && <>The list of seasons not loaded</>}
+            {showSeasons && !showSeasonsError && (
+              <ShowSeasonList>
+                {showSeasons.map((season) => (
+                  <ShowSeasonLink
+                    onClick={() =>
+                      navigate(`/tv-show/${id}/season/${season.number}`)
+                    }
+                    key={season.id}
+                  >
+                    {`Season ${season?.number}`}
+                  </ShowSeasonLink>
+                ))}
+              </ShowSeasonList>
+            )}
+          </ShowDetails>
+        </InfoBlock>
+      )}
     </PageWrap>
   );
 };

@@ -11,6 +11,7 @@ import {
   InfoBlock,
   Cover,
   InfoBlockTitle,
+  Alert,
 } from "../../globalStyles";
 import { SeasonEpisodeList, BoldText, Text } from "./style";
 
@@ -48,51 +49,63 @@ const TvShowSeasonPage = () => {
 
   console.log(currentSeason);
 
+  const episodesAmount = seasonsEpisodes
+    ? `(${seasonsEpisodes.length} Episodes)`
+    : "";
+
   return (
     <PageWrap>
       <PageHeader>
         <GoBackButton onClick={() => navigate(-1)} />
         <PageTitle>
-          {`${showInfo?.name} / Season ${seasonNumber} (${
-            seasonsEpisodes && seasonsEpisodes.length
-          } Episodes)`}
+          {`${showInfo?.name} / Season ${seasonNumber} ${episodesAmount}`}
         </PageTitle>
       </PageHeader>
 
-      <InfoBlock>
-        <Cover url={currentSeason?.image?.original} />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <InfoBlockTitle>
-            <BoldText>
-              {`Season premiere date:`}
-              <Text>{currentSeason?.premiereDate}</Text>
-            </BoldText>
-          </InfoBlockTitle>
-          {seasonsEpisodes && (
+      {showSeasonsError && (
+        <Alert>The Season data doesn't loaded!...try to reload a page.</Alert>
+      )}
+
+      {currentSeason && !showSeasonsError && (
+        <InfoBlock>
+          <Cover url={currentSeason?.image?.original} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <InfoBlockTitle>
+              <BoldText>
+                {`Season premiere date:`}
+                <Text>{currentSeason?.premiereDate}</Text>
+              </BoldText>
+            </InfoBlockTitle>
+
             <SeasonEpisodeList>
-              {seasonsEpisodes.map((episode) => (
-                <div key={episode?.number}>
-                  <BoldText
-                    onClick={() =>
-                      navigate(
-                        `/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
-                      )
-                    }
-                  >
-                    {`Episode ${episode?.number}:`}
-                    <Text>{episode?.name}</Text>
-                  </BoldText>
-                </div>
-              ))}
+              {SeasonsEpisodesError && (
+                <Alert>List of Episodes doesn't loaded</Alert>
+              )}
+              {seasonsEpisodes &&
+                !SeasonsEpisodesError &&
+                seasonsEpisodes.map((episode) => (
+                  <div key={episode?.number}>
+                    <BoldText
+                      onClick={() =>
+                        navigate(
+                          `/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
+                        )
+                      }
+                    >
+                      {`Episode ${episode?.number}:`}
+                      <Text>{episode?.name}</Text>
+                    </BoldText>
+                  </div>
+                ))}
             </SeasonEpisodeList>
-          )}
-        </div>
-      </InfoBlock>
+          </div>
+        </InfoBlock>
+      )}
     </PageWrap>
   );
 };
