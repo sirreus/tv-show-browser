@@ -4,17 +4,22 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ".github/workflows/deploy.yml"
-
 jobs:
-  build_test:
+  deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: npm install
-      - run: npm run build
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm install
+    - name: Build page
+      run: npm run build
       - name: deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
