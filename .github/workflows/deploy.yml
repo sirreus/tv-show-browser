@@ -1,0 +1,31 @@
+name: Deploy React Application
+
+defaults:
+  run:
+    working-directory: tv-app
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "tv-app/**"
+      - ".github/workflows/deploy.yml"
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+          cache-dependency-path: tv-app/package-lock.json
+      - run: npm install
+      - run: npm run build
+      - name: deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
