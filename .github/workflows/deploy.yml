@@ -1,15 +1,15 @@
 name: Deploy React Application
 
-defaults:
-  run:
-    working-directory: tv-app
+# defaults:
+#   run:
+#     working-directory: tv-app
 
 on:
   push:
     branches:
       - main
     paths:
-      - "tv-app/**"
+      # - "tv-app/**"
       - ".github/workflows/deploy.yml"
 
 jobs:
