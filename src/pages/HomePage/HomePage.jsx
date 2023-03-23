@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import ShowCard from "../../components/ShowCard";
 import FavoriteCard from "../../components/FavoritesCard/FavoritesCard";
@@ -16,21 +16,20 @@ import { PageWrap, ShowList, FavoritesList, FavoriteBlock } from "./style";
 const HomePage = () => {
   const defaultPaginationPage = 0;
 
-  const [paginationPage, setPaginationPage] = useState(defaultPaginationPage);
-  const [favorites, updateFavorites] = useState([]);
+  // const [paginationPage, setPaginationPage] = useState(defaultPaginationPage);
 
-  const { data, error } = api.getTvShowList({ paginationPage });
+  const { data, error } = api.getTvShowList({ defaultPaginationPage });
 
-  useEffect(() => {
-    updateFavorites(Object.values(getFavorites()));
-  }, []);
+  // useEffect(() => {
+  //   updateFavorites(Object.values(getFavorites()));
+  // }, []);
 
   const toggleFavoritesHandler = (show) => {
     const localFav = getFavorites();
     if (Object.keys(localFav).includes(show.id.toString())) {
-      updateFavorites(removeFromFavorites(show));
+      removeFromFavorites(show);
     } else {
-      updateFavorites(addToFavorites(show));
+      addToFavorites(show);
     }
   };
 
