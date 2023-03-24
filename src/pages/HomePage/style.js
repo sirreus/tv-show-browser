@@ -7,6 +7,14 @@ export const PageWrap = styled.div`
   margin: 32px auto;
 `;
 
+export const PageHeaderWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+`;
+
 export const FavoriteBlock = styled.div`
   display: flex;
   flex-direction: column;

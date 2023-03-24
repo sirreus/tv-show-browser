@@ -46,7 +46,7 @@ const TvShowPage = () => {
 
       {showInfo && !showInfoError && (
         <InfoBlock>
-          <Cover url={showInfo?.image.original} />
+          <Cover url={showInfo?.image?.original || showInfo?.image?.medium} />
           <ShowDetails>
             <ShowDetailsText>{genres}</ShowDetailsText>
             <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>

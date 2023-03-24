@@ -17,12 +17,16 @@ const useGetTvShowSeasonsEpisodes = ({ seasonId }) =>
 const useGetTvShowEpisodeInfo = ({ episodeId }) =>
   useSWR(`${API_BASE_URL}/episodes/${episodeId}`, requestFetcher);
 
+const useSearch = ({ searchInput }) =>
+  useSWR(`${API_BASE_URL}/search/shows?q=${searchInput}`, requestFetcher);
+
 const api = {
   getTvShowList: useGetTvShowList,
   getTvShowInfo: useGetTvShowInfo,
   getTvShowSeasons: useGetTvShowSeasons,
   getTvShowSeasonsEpisodes: useGetTvShowSeasonsEpisodes,
   getTvShowEpisodeInfo: useGetTvShowEpisodeInfo,
+  getSearch: useSearch,
 };
 
 export default api;
