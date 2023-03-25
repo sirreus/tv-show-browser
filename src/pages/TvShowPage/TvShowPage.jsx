@@ -6,6 +6,7 @@ import {
   PageWrap,
   PageHeader,
   GoBackButton,
+  GoBackButtonIcon,
   PageTitle,
   InfoBlock,
   Cover,
@@ -36,7 +37,9 @@ const TvShowPage = () => {
   return (
     <PageWrap>
       <PageHeader>
-        <GoBackButton onClick={() => navigate(routes.main)} />
+        <GoBackButton onClick={() => navigate(routes.main)}>
+          <GoBackButtonIcon />
+        </GoBackButton>
         <PageTitle>{showInfo?.name}</PageTitle>
       </PageHeader>
 

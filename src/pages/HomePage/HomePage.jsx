@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ShowCard from "../../components/ShowCard";
 import FavoriteCard from "../../components/FavoritesCard/FavoritesCard";
@@ -25,6 +25,8 @@ const HomePage = () => {
 
   // const [paginationPage, setPaginationPage] = useState(defaultPaginationPage);
 
+  const [favoritesShow, setFavoritesShow] = useState(getFavorites());
+
   const { data, error } = api.getTvShowList({
     paginationPage: defaultPaginationPage,
   });
@@ -32,9 +34,9 @@ const HomePage = () => {
   const toggleFavoritesHandler = (show) => {
     const localFav = getFavorites();
     if (Object.keys(localFav).includes(show.id.toString())) {
-      removeFromFavorites(show);
+      setFavoritesShow(removeFromFavorites(show));
     } else {
-      addToFavorites(show);
+      setFavoritesShow(addToFavorites(show));
     }
   };
 
@@ -45,18 +47,19 @@ const HomePage = () => {
         <SearchBar />
       </PageHeaderWrap>
 
-      {Object.values(getFavorites()).length ? (
+      {/* FAVORITES SECTION */}
+      {Object.values(favoritesShow).length ? (
         <FavoriteBlock>
           <h2>My Favorites</h2>
           <div style={{ width: "inherit" }}>
             <FavoritesList>
-              {Object.values(getFavorites()).map((show) => (
+              {Object.values(favoritesShow).map((show) => (
                 <FavoriteCard
                   data={show}
                   key={show.id}
                   toggleFavorites={() => toggleFavoritesHandler(show)}
                   isFavorite={Boolean(
-                    Object.values(getFavorites()).find(
+                    Object.values(favoritesShow).find(
                       (item) => item?.id === show?.id
                     )
                   )}
@@ -69,6 +72,7 @@ const HomePage = () => {
 
       {error && <Alert>We have some problem...please reload a page.</Alert>}
 
+      {/* TV SHOW SECTION */}
       {data && !error && (
         <>
           <h2>TV Shows</h2>
@@ -80,7 +84,7 @@ const HomePage = () => {
                   key={show.id}
                   toggleFavorites={() => toggleFavoritesHandler(show)}
                   isFavorite={Boolean(
-                    Object.values(getFavorites()).find(
+                    Object.values(favoritesShow).find(
                       (item) => item?.id === show?.id
                     )
                   )}

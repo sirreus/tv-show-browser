@@ -27,12 +27,13 @@ export const ShowSeasonList = styled.div`
 export const ShowSeasonLink = styled.div`
   width: fit-content;
   padding: 4px 8px;
-  border: 1px solid grey;
+  border: 0.5px solid grey;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background: grey;
+    background: lavender;
+    border: 0.6px solid lavender;
   }
 
   @media (max-width: 450px) {

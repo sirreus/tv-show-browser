@@ -13,7 +13,7 @@ const FavoriteCard = ({ data, toggleFavorites, isFavorite }) => {
         url={data.image.original}
         onClick={() => navigate(`/tv-show/${data.id}`)}
       >
-        <CardTitle>{data.name}</CardTitle>
+        <CardTitle id="card-title">{data.name}</CardTitle>
       </CardImg>
     </CardWrap>
   );

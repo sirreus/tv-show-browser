@@ -19,6 +19,10 @@ export const CardWrap = styled.div`
   &:hover {
     opacity: 1;
   }
+
+  &:hover #card-title {
+    display: flex;
+  }
 `;
 
 export const CardImg = styled.div`
@@ -26,8 +30,8 @@ export const CardImg = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 160px;
-  height: 180px;
+  width: 120px;
+  height: 140px;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${(p) => p.url});
@@ -43,8 +47,8 @@ export const FavoriteIcon = styled.div`
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${(p) => iconChooser(p.isFavorite)});
@@ -52,7 +56,7 @@ export const FavoriteIcon = styled.div`
 `;
 
 export const CardTitle = styled.div`
-  display: flex;
+  display: none;
   width: fit-content;
   height: fit-content;
   border-radius: 4px;

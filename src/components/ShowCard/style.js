@@ -7,9 +7,9 @@ export const CardWrap = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 240px;
-  box-shadow: 0 0 8px #ccc;
+  box-shadow: 0 0 8px #777f87;
   border-radius: 8px;
-  opacity: 0.7;
+  opacity: 0.85;
   cursor: pointer;
 
   @media (max-width: 650px) {
@@ -17,6 +17,7 @@ export const CardWrap = styled.div`
   }
 
   &:hover {
+    box-shadow: 0 0 14px #374149;
     opacity: 1;
   }
 `;

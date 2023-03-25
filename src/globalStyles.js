@@ -18,17 +18,25 @@ export const PageHeader = styled.div`
 export const GoBackButton = styled.div`
   width: 32px;
   height: 32px;
-  margin-top: 16px;
+  margin-right: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+
+  &:hover {
+    background: #d9d9f8;
+  }
+`;
+
+export const GoBackButtonIcon = styled.div`
+  width: 32px;
+  height: 32px;
+  margin: 6px 0 0 6px;
   background-image: url(${arrowIcon});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   cursor: pointer;
-
-  &:hover {
-    border-radius: 50%;
-    background: gainsboro;
-  }
 `;
 
 export const PageTitle = styled.h2`

@@ -7,6 +7,7 @@ import api from "../../api";
 import {
   PageWrap,
   GoBackButton,
+  GoBackButtonIcon,
   PageHeader,
   PageTitle,
   InfoBlock,
@@ -68,7 +69,9 @@ const TvShowEpisodePage = () => {
   return (
     <PageWrap>
       <PageHeader>
-        <GoBackButton onClick={() => navigate(-1)} />
+        <GoBackButton onClick={() => navigate(-1)}>
+          <GoBackButtonIcon />
+        </GoBackButton>
         <PageTitle>{`${showInfo?.name} / Season ${seasonNumber} / Episode ${episodeNumber}`}</PageTitle>
       </PageHeader>
 
