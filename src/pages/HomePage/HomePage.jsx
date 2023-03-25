@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 import ShowCard from "../../components/ShowCard";
-import FavoriteCard from "../../components/FavoritesCard/FavoritesCard";
+import SearchBar from "../../components/SearchBar";
+import FavoriteCard from "../../components/FavoritesCard";
 
 import api from "../../api";
 import {
@@ -17,13 +19,16 @@ import {
   FavoritesList,
   FavoriteBlock,
   PageHeaderWrap,
+  Pagination,
 } from "./style";
-import SearchBar from "../../components/SearchBar";
+import "./pagination.css";
 
 const HomePage = () => {
+  const itemsPerPage = 28;
   const defaultPaginationPage = 0;
 
-  // const [paginationPage, setPaginationPage] = useState(defaultPaginationPage);
+  const [pageCount, setPageCount] = useState(defaultPaginationPage);
+  const [itemOffset, setItemOffset] = useState(0);
 
   const [favoritesShow, setFavoritesShow] = useState(getFavorites());
 
@@ -39,6 +44,21 @@ const HomePage = () => {
       setFavoritesShow(addToFavorites(show));
     }
   };
+
+  useEffect(() => {
+    if (data) {
+      setPageCount(Math.ceil(data.length / 30));
+    }
+  }, [data]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    setItemOffset(newOffset);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const endOffset = itemOffset + itemsPerPage;
+  const displayedShows = data ? data.slice(itemOffset, endOffset) : [];
 
   return (
     <PageWrap>
@@ -73,26 +93,38 @@ const HomePage = () => {
       {error && <Alert>We have some problem...please reload a page.</Alert>}
 
       {/* TV SHOW SECTION */}
-      {data && !error && (
+      {displayedShows && !error && (
         <>
           <h2>TV Shows</h2>
           <ShowList>
-            {data &&
-              data.map((show) => (
-                <ShowCard
-                  data={show}
-                  key={show.id}
-                  toggleFavorites={() => toggleFavoritesHandler(show)}
-                  isFavorite={Boolean(
-                    Object.values(favoritesShow).find(
-                      (item) => item?.id === show?.id
-                    )
-                  )}
-                />
-              ))}
+            {displayedShows.map((show) => (
+              <ShowCard
+                data={show}
+                key={show.id}
+                toggleFavorites={() => toggleFavoritesHandler(show)}
+                isFavorite={Boolean(
+                  Object.values(favoritesShow).find(
+                    (item) => item?.id === show?.id
+                  )
+                )}
+              />
+            ))}
           </ShowList>
         </>
       )}
+
+      <Pagination>
+        <ReactPaginate
+          id="pagination"
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+        />
+      </Pagination>
     </PageWrap>
   );
 };

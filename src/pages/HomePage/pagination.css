@@ -1,0 +1,38 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: max-content;
+  margin: 0;
+  padding: 8px 0;
+}
+
+ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+li.previous.disabled,
+li.next.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+ul > li:not(li.previous.disabled, li.next.disabled):hover {
+  background-color: rgb(225, 225, 250);
+  box-shadow: 0 0 8px rgb(161, 161, 210);
+  font-weight: 500;
+}
+
+ul > li.selected {
+  background-color: rgb(225, 225, 250);
+  box-shadow: 0 0 8px rgb(161, 161, 210);
+  font-weight: 500;
+}

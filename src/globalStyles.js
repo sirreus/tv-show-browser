@@ -24,7 +24,8 @@ export const GoBackButton = styled.div`
   background: transparent;
 
   &:hover {
-    background: #d9d9f8;
+    background-color: rgb(225, 225, 250);
+    box-shadow: 0 0 8px rgb(161, 161, 210);
   }
 `;
 
