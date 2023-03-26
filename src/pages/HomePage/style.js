@@ -82,3 +82,27 @@ export const ShowMoreButton = styled.div`
   border: 1px solid #8181bd;
   padding: 8px;
 `;
+
+export const Notification = styled.div`
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: ${(p) => (p.isVisible ? "flex" : "none")};
+  justify-content: flex-start;
+  width: fit-content;
+  border-radius: 4px;
+  background: ${(p) => (p.status === "added" ? "#bce2da" : "#f3bdbd")};
+  border: ${(p) =>
+    p.status === "added" ? "1px solid #4b9c8a" : "1px solid #bf4c4c"};
+  padding: 8px;
+
+  color: ${(p) => (p.status === "added" ? "#1a3731" : "#712c2c")};
+
+  z-index: 3;
+
+  @media (max-width: 320px) {
+    bottom: 16px;
+    right: 8px;
+    width: 95vw;
+  }
+`;

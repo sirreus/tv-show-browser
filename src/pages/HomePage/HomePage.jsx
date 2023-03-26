@@ -22,6 +22,7 @@ import {
   PageHeaderWrap,
   Pagination,
   ShowMoreButton,
+  Notification,
 } from "./style";
 import "./pagination.css";
 
@@ -35,6 +36,8 @@ const HomePage = () => {
   const [itemOffset, setItemOffset] = useState(0);
 
   const [favoritesShow, setFavoritesShow] = useState(getFavorites());
+  const [markedShow, setMarkedShow] = useState(null);
+  const [isNotificationVisible, setNotificationVisible] = useState(false);
 
   const { data, error } = api.getTvShowList({
     paginationPage: defaultPaginationPage,
@@ -44,9 +47,18 @@ const HomePage = () => {
     const localFav = getFavorites();
     if (Object.keys(localFav).includes(show.id.toString())) {
       setFavoritesShow(removeFromFavorites(show));
+      setMarkedShow({ name: show.name, status: "removed" });
     } else {
       setFavoritesShow(addToFavorites(show));
+      setMarkedShow({ name: show.name, status: "added" });
     }
+
+    setNotificationVisible(true);
+
+    setTimeout(() => {
+      setNotificationVisible(false);
+      setMarkedShow(null);
+    }, 4000);
   };
 
   useEffect(() => {
@@ -79,6 +91,15 @@ const HomePage = () => {
         <h2>Welcome to GalaxyPlex!</h2>
         <SearchBar />
       </PageHeaderWrap>
+
+      <Notification
+        isVisible={isNotificationVisible}
+        status={markedShow?.status}
+      >
+        {`${markedShow?.name} was ${markedShow?.status} ${
+          markedShow?.status === "added" ? "to" : "from"
+        } your Favorites list!`}
+      </Notification>
 
       {/* FAVORITES SECTION */}
       {Object.values(favoritesShow).length ? (
@@ -126,6 +147,7 @@ const HomePage = () => {
         </>
       )}
 
+      {/* PAGINATION SECTION */}
       <Pagination>
         {isMobile ? (
           <ShowMoreButton onClick={loadMoreShow}>Show more</ShowMoreButton>
