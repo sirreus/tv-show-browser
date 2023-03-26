@@ -10,6 +10,7 @@ export const PageWrap = styled.div`
   @media (max-width: 320px) {
     width: 100%;
     padding: 0 8px;
+    margin: 16px 0 0 0;
   }
 `;
 
@@ -48,6 +49,11 @@ export const GoBackButtonIcon = styled.div`
 export const PageTitle = styled.h2`
   font-size: 32px;
   font-weight: 400;
+
+  @media (max-width: 320px) {
+    font-size: 26px;
+    margin: 20px 0;
+  }
 `;
 
 export const InfoBlock = styled.div`
@@ -65,6 +71,10 @@ export const InfoBlock = styled.div`
 
   @media (max-width: 450px) {
     margin: 0 8px;
+  }
+  @media (max-width: 320px) {
+    margin: 0;
+    height: 88vh;
   }
 `;
 
@@ -86,6 +96,14 @@ export const Cover = styled.div`
   @media (max-width: 450px) {
     width: 300px;
     height: 452px;
+  }
+
+  @media (max-width: 320px) {
+    width: 100vw;
+    height: inherit;
+    margin: 0;
+    background-size: cover;
+    background-position: top;
   }
 `;
 

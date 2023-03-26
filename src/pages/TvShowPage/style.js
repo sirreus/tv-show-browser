@@ -9,6 +9,7 @@ export const ShowDetails = styled.div`
 
   @media (max-width: 450px) {
     width: fit-content;
+    margin: 0;
   }
 `;
 
