@@ -103,6 +103,6 @@ export const Notification = styled.div`
   @media (max-width: 375px) {
     bottom: 16px;
     right: 8px;
-    width: 95vw;
+    width: 91vw;
   }
 `;
