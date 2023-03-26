@@ -74,7 +74,6 @@ const HomePage = () => {
   };
 
   const loadMoreShow = () => {
-    console.log(">>> HERE!");
     setItemOffset(itemOffset + itemsPerPage);
   };
 

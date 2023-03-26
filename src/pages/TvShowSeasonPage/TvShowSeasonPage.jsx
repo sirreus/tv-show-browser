@@ -55,8 +55,6 @@ const TvShowSeasonPage = () => {
   if (showSeasonsError || showInfoError)
     return <>Something went wrong!...please reload a page.</>;
 
-  console.log(currentSeason);
-
   const episodesAmount = seasonsEpisodes
     ? `(${seasonsEpisodes.length} Episodes)`
     : "";
