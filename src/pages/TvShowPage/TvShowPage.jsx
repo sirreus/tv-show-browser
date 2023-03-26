@@ -11,6 +11,7 @@ import {
   InfoBlock,
   Cover,
   Alert,
+  Logo,
 } from "../../globalStyles";
 import {
   ShowDetails,
@@ -36,6 +37,7 @@ const TvShowPage = () => {
 
   return (
     <PageWrap>
+      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
         <GoBackButton onClick={() => navigate(routes.main)}>
           <GoBackButtonIcon />

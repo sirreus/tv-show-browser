@@ -13,7 +13,9 @@ import {
   Cover,
   InfoBlockTitle,
   Alert,
+  Logo,
 } from "../../globalStyles";
+import routes from "../../routes";
 import {
   SeasonEpisodeInfoWrapper,
   SeasonEpisodeList,
@@ -61,6 +63,7 @@ const TvShowSeasonPage = () => {
 
   return (
     <PageWrap>
+      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
         <GoBackButton onClick={() => navigate(-1)}>
           <GoBackButtonIcon />

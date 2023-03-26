@@ -14,6 +14,14 @@ export const PageWrap = styled.div`
   }
 `;
 
+export const Logo = styled.div`
+  text-align: center;
+  font-size: 28px;
+  color: #64648e;
+
+  cursor: pointer;
+`;
+
 export const PageHeader = styled.div`
   display: flex;
   flex-direction: row;

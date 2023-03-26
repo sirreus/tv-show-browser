@@ -16,8 +16,10 @@ import {
   InfoBlockTitle,
   SummaryText,
   Alert,
+  Logo,
 } from "../../globalStyles";
 import { Airstamp } from "./style";
+import routes from "../../routes";
 
 const TvShowEpisodePage = () => {
   const navigate = useNavigate();
@@ -70,6 +72,7 @@ const TvShowEpisodePage = () => {
 
   return (
     <PageWrap>
+      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
         <GoBackButton onClick={() => navigate(-1)}>
           <GoBackButtonIcon />
