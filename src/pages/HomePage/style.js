@@ -72,3 +72,13 @@ export const Pagination = styled.div`
   width: 100%;
   margin: 16px 0;
 `;
+
+export const ShowMoreButton = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 8px;
+  background: #d2d2f4;
+  border: 1px solid #8181bd;
+  padding: 8px;
+`;

@@ -21,13 +21,14 @@ import {
   FavoriteBlockWrapper,
   PageHeaderWrap,
   Pagination,
+  ShowMoreButton,
 } from "./style";
 import "./pagination.css";
 
 const HomePage = () => {
   const isMobile = useMedia();
 
-  const itemsPerPage = 28;
+  const itemsPerPage = isMobile ? 10 : 28;
   const defaultPaginationPage = 0;
 
   const [pageCount, setPageCount] = useState(defaultPaginationPage);
@@ -60,8 +61,17 @@ const HomePage = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
+  const loadMoreShow = () => {
+    console.log(">>> HERE!");
+    setItemOffset(itemOffset + itemsPerPage);
+  };
+
   const endOffset = itemOffset + itemsPerPage;
-  const displayedShows = data ? data.slice(itemOffset, endOffset) : [];
+  const displayedShows = data
+    ? isMobile
+      ? data.slice(0, endOffset)
+      : data.slice(itemOffset, endOffset)
+    : [];
 
   return (
     <PageWrap isMobile={isMobile}>
@@ -117,16 +127,20 @@ const HomePage = () => {
       )}
 
       <Pagination>
-        <ReactPaginate
-          id="pagination"
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={isMobile ? 3 : pageCount}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-        />
+        {isMobile ? (
+          <ShowMoreButton onClick={loadMoreShow}>Show more</ShowMoreButton>
+        ) : (
+          <ReactPaginate
+            id="pagination"
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={isMobile ? 3 : pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+          />
+        )}
       </Pagination>
     </PageWrap>
   );
