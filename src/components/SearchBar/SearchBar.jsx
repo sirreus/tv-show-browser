@@ -50,6 +50,8 @@ const SearchBar = () => {
 
   const { data } = api.getSearch({ searchInput });
 
+  console.log(JSON.stringify(data));
+
   const fetchLastSearch = () => {
     setOverlayVisible(true);
     const lastSearch = getLastSearch();
@@ -74,12 +76,14 @@ const SearchBar = () => {
         }}
       >
         <Input
+          data-testid="search-input"
           type="text"
           placeholder="go ahead!"
           value={searchInput}
           onChange={(e) => handleChange(e.target)}
           onFocus={() => fetchLastSearch()}
           onBlur={() => {
+            setSearchInput("");
             setLastSearch([]);
             setOverlayVisible(false);
           }}
@@ -87,12 +91,16 @@ const SearchBar = () => {
         <SearchIcon />
 
         {suggestData && suggestData.length > 0 && (
-          <SuggestList isVisible={lastSearch.length > 0 || isVisible}>
+          <SuggestList
+            isVisible={lastSearch.length > 0 || isVisible}
+            data-testid="suggest-list"
+          >
             <SuggestListLabel>
               {data && data.length > 0 ? "Suggestions" : "Last search"}
             </SuggestListLabel>
             {suggestData.map(({ show }) => (
               <SuggestListItem
+                data-testid="suggest-list-item"
                 onClick={() => selectShowFromSearch(show)}
                 key={show?.id}
               >

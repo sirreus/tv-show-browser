@@ -87,7 +87,7 @@ const HomePage = () => {
   return (
     <PageWrap isMobile={isMobile}>
       <PageHeaderWrap isMobile={isMobile}>
-        <h2>Welcome to GalaxyPlex!</h2>
+        <h2 data-testid="home-title">Welcome to GalaxyPlex!</h2>
         <SearchBar />
       </PageHeaderWrap>
 

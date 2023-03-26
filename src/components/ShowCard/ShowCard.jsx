@@ -16,14 +16,15 @@ const ShowCard = ({ data, toggleFavorites, isFavorite }) => {
   const genres = data.genres.join(", ");
 
   return (
-    <CardWrap>
+    <CardWrap data-testid="show-card">
       <FavoriteIcon onClick={toggleFavorites} isFavorite={isFavorite} />
       <CardImg
+        data-testid="show-img"
         url={data.image.original}
         onClick={() => navigate(`/tv-show/${data.id}`)}
       >
-        <CardTitle>{data.name}</CardTitle>
-        <CardInfo>
+        <CardTitle data-testid="show-name">{data.name}</CardTitle>
+        <CardInfo data-testid="show-info">
           <CardInfoText>{genres}</CardInfoText>
           <CardInfoText>{`premiered: ${data.premiered}`}</CardInfoText>
           <CardInfoText>{`rating: ${data.rating.average}`}</CardInfoText>
