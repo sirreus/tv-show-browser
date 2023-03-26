@@ -7,7 +7,7 @@ export const PageHeaderWrap = styled.div`
   align-items: center;
   width: 100%;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     flex-direction: column;
   }
 `;
@@ -22,7 +22,7 @@ export const FavoriteBlock = styled.div`
   width: inherit;
   margin: 32px auto;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     width: 100%;
     margin: 24px 0;
   }
@@ -37,7 +37,7 @@ export const FavoritesList = styled.div`
   overflow: auto;
   white-space: nowrap;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     gap: 0 8px;
   }
 `;
@@ -54,11 +54,11 @@ export const ShowList = styled.div`
   }
 
   @media (max-width: 770px) {
-    grid-template-columns: repeat(2, 320px);
+    grid-template-columns: repeat(2, 375px);
     gap: 8px 8px;
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 375px) {
     grid-template-columns: repeat(1, 100%);
     gap: 8px 0;
   }
@@ -100,7 +100,7 @@ export const Notification = styled.div`
 
   z-index: 3;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     bottom: 16px;
     right: 8px;
     width: 95vw;

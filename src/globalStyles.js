@@ -4,11 +4,11 @@ import arrowIcon from "./assets/arrow-go-back.svg";
 export const PageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${(p) => (p.isMobile ? "100%" : "1024px")};
+  width: ${(p) => (p.isMobile ? "95vw" : "1024px")};
   margin: 32px auto;
 
-  @media (max-width: 320px) {
-    width: 100%;
+  @media (max-width: 375px) {
+    width: 95vw;
     padding: 0 8px;
     margin: 16px 0 0 0;
   }
@@ -58,7 +58,7 @@ export const PageTitle = styled.h2`
   font-size: 32px;
   font-weight: 400;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     font-size: 26px;
     margin: 20px 0;
   }
@@ -80,7 +80,7 @@ export const InfoBlock = styled.div`
   @media (max-width: 450px) {
     margin: 0 8px;
   }
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     margin: 0;
     height: 88vh;
   }
@@ -108,8 +108,8 @@ export const Cover = styled.div`
     height: 452px;
   }
 
-  @media (max-width: 320px) {
-    width: 100vw;
+  @media (max-width: 375px) {
+    width: 95vw;
     height: inherit;
     margin: 0;
     background-size: cover;
@@ -122,7 +122,7 @@ export const InfoBlockTitle = styled.div`
   padding: 8px;
   ${(p) => p.fontSize && `font-size: ${p.fontSize}px`};
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     margin: 0;
   }
 `;

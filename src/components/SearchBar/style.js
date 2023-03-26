@@ -35,12 +35,12 @@ export const Input = styled.input`
     z-index: 2;
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     width: 100%;
 
     &:focus {
       outline: none;
-      width: 92vw;
+      width: 88vw;
       border: 1px solid #777f87;
     }
   }
@@ -72,8 +72,8 @@ export const SuggestList = styled.div`
 
   z-index: 2;
 
-  @media (max-width: 320px) {
-      width: 96vw;
+  @media (max-width: 375px) {
+      width: 91vw;
     }
   }
 `;

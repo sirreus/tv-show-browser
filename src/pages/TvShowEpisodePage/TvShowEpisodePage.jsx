@@ -18,7 +18,7 @@ import {
   Alert,
   Logo,
 } from "../../globalStyles";
-import { Airstamp } from "./style";
+import { Airstamp, EpisodeCover } from "./style";
 import routes from "../../routes";
 
 const TvShowEpisodePage = () => {
@@ -85,16 +85,12 @@ const TvShowEpisodePage = () => {
           <Alert>Episode info doesn't loaded!...try to reload a page.</Alert>
         ) : (
           <>
-            {isMobile && (
-              <Cover url={episodeData?.image.original} fullSize height={558} />
-            )}
+            {isMobile && <EpisodeCover url={episodeData?.image.original} />}
             <InfoBlockTitle noMargin fontSize={24}>
               {episodeData?.name}
             </InfoBlockTitle>
             <Airstamp>{formatDate(episodeData?.airstamp)}</Airstamp>
-            {!isMobile && (
-              <Cover url={episodeData?.image.original} fullSize height={558} />
-            )}
+            {!isMobile && <EpisodeCover url={episodeData?.image.original} />}
             <SummaryText>{getSummaryText()}</SummaryText>
           </>
         )}

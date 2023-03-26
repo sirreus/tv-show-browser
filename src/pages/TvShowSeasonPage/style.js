@@ -4,7 +4,7 @@ export const SeasonEpisodeInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     overflow: auto;
     margin: 8px 0;
   }
@@ -16,7 +16,7 @@ export const SeasonEpisodeList = styled.div`
   margin: 0px 16px;
   padding: 8px;
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     margin: 0;
   }
 `;
