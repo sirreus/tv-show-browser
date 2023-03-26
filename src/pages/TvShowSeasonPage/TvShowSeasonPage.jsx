@@ -14,7 +14,12 @@ import {
   InfoBlockTitle,
   Alert,
 } from "../../globalStyles";
-import { SeasonEpisodeList, BoldText, Text } from "./style";
+import {
+  SeasonEpisodeInfoWrapper,
+  SeasonEpisodeList,
+  BoldText,
+  Text,
+} from "./style";
 
 const TvShowSeasonPage = () => {
   const navigate = useNavigate();
@@ -72,12 +77,7 @@ const TvShowSeasonPage = () => {
       {currentSeason && !showSeasonsError && (
         <InfoBlock>
           <Cover url={currentSeason?.image?.original} />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
+          <SeasonEpisodeInfoWrapper>
             <InfoBlockTitle>
               <BoldText>
                 {`Season premiere date:`}
@@ -106,7 +106,7 @@ const TvShowSeasonPage = () => {
                   </div>
                 ))}
             </SeasonEpisodeList>
-          </div>
+          </SeasonEpisodeInfoWrapper>
         </InfoBlock>
       )}
     </PageWrap>

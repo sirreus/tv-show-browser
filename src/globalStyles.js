@@ -111,6 +111,10 @@ export const InfoBlockTitle = styled.div`
   margin: ${(p) => (p.noMargin ? "0" : "0px 16px")};
   padding: 8px;
   ${(p) => p.fontSize && `font-size: ${p.fontSize}px`};
+
+  @media (max-width: 320px) {
+    margin: 0;
+  }
 `;
 
 export const SummaryText = styled.div`
