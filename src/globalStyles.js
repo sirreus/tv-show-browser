@@ -80,10 +80,12 @@ export const InfoBlock = styled.div`
 
 export const Cover = styled.div`
   position: relative;
-  width: ${(p) => (p.fullSize ? "100%" : "338px")};
+  max-width: 992px;
+  width: ${(p) => (p.fullSize ? "95vw" : "338px")};
   height: ${(p) => (p.height ? `${p.height}px` : "480px")};
   background-repeat: no-repeat;
   background-size: contain;
+
   background-image: url(${(p) => p.url});
   border-radius: 4px;
 

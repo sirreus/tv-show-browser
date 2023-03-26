@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import api from "../../api";
+import { useMedia } from "../../hooks/media";
 
 import {
   PageWrap,
@@ -20,6 +21,7 @@ import { Airstamp } from "./style";
 
 const TvShowEpisodePage = () => {
   const navigate = useNavigate();
+  const isMobile = useMedia();
   const { id, seasonNumber, episodeNumber } = useParams();
 
   const [seasonId, setSeasonId] = useState(null);
@@ -75,16 +77,21 @@ const TvShowEpisodePage = () => {
         <PageTitle>{`${showInfo?.name} / Season ${seasonNumber} / Episode ${episodeNumber}`}</PageTitle>
       </PageHeader>
 
-      <InfoBlock vertical paddingAside={16}>
+      <InfoBlock vertical paddingAside={isMobile ? 8 : 16}>
         {showSeasonsError || SeasonsEpisodesError ? (
           <Alert>Episode info doesn't loaded!...try to reload a page.</Alert>
         ) : (
           <>
+            {isMobile && (
+              <Cover url={episodeData?.image.original} fullSize height={558} />
+            )}
             <InfoBlockTitle noMargin fontSize={24}>
               {episodeData?.name}
             </InfoBlockTitle>
             <Airstamp>{formatDate(episodeData?.airstamp)}</Airstamp>
-            <Cover url={episodeData?.image.original} fullSize height={432} />
+            {!isMobile && (
+              <Cover url={episodeData?.image.original} fullSize height={558} />
+            )}
             <SummaryText>{getSummaryText()}</SummaryText>
           </>
         )}
