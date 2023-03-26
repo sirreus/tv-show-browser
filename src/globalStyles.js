@@ -4,8 +4,13 @@ import arrowIcon from "./assets/arrow-go-back.svg";
 export const PageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: ${(p) => (p.isMobile ? "100%" : "1024px")};
   margin: 32px auto;
+
+  @media (max-width: 320px) {
+    width: 100%;
+    padding: 0 8px;
+  }
 `;
 
 export const PageHeader = styled.div`

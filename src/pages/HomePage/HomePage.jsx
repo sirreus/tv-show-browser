@@ -6,24 +6,27 @@ import SearchBar from "../../components/SearchBar";
 import FavoriteCard from "../../components/FavoritesCard";
 
 import api from "../../api";
+import { useMedia } from "../../hooks/media";
 import {
   addToFavorites,
   getFavorites,
   removeFromFavorites,
 } from "../../utils/favorites";
 
-import { Alert } from "../../globalStyles";
+import { Alert, PageWrap } from "../../globalStyles";
 import {
-  PageWrap,
   ShowList,
   FavoritesList,
   FavoriteBlock,
+  FavoriteBlockWrapper,
   PageHeaderWrap,
   Pagination,
 } from "./style";
 import "./pagination.css";
 
 const HomePage = () => {
+  const isMobile = useMedia();
+
   const itemsPerPage = 28;
   const defaultPaginationPage = 0;
 
@@ -61,8 +64,8 @@ const HomePage = () => {
   const displayedShows = data ? data.slice(itemOffset, endOffset) : [];
 
   return (
-    <PageWrap>
-      <PageHeaderWrap>
+    <PageWrap isMobile={isMobile}>
+      <PageHeaderWrap isMobile={isMobile}>
         <h2>Welcome to GalaxyPlex!</h2>
         <SearchBar />
       </PageHeaderWrap>
@@ -71,7 +74,7 @@ const HomePage = () => {
       {Object.values(favoritesShow).length ? (
         <FavoriteBlock>
           <h2>My Favorites</h2>
-          <div style={{ width: "inherit" }}>
+          <FavoriteBlockWrapper>
             <FavoritesList>
               {Object.values(favoritesShow).map((show) => (
                 <FavoriteCard
@@ -86,7 +89,7 @@ const HomePage = () => {
                 />
               ))}
             </FavoritesList>
-          </div>
+          </FavoriteBlockWrapper>
         </FavoriteBlock>
       ) : null}
 
@@ -120,7 +123,7 @@ const HomePage = () => {
           nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
-          pageCount={pageCount}
+          pageCount={isMobile ? 3 : pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}
         />

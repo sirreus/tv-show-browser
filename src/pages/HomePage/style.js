@@ -1,17 +1,18 @@
 import styled from "styled-components/macro";
 
-export const PageWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 1024px;
-  margin: 32px auto;
-`;
-
 export const PageHeaderWrap = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(p) => (p.isMobile ? "column" : "row")};
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
+`;
+
+export const FavoriteBlockWrapper = styled.div`
   width: inherit;
 `;
 
@@ -20,6 +21,11 @@ export const FavoriteBlock = styled.div`
   flex-direction: column;
   width: inherit;
   margin: 32px auto;
+
+  @media (max-width: 320px) {
+    width: 100%;
+    margin: 24px 0;
+  }
 `;
 
 export const FavoritesList = styled.div`
@@ -30,6 +36,10 @@ export const FavoritesList = styled.div`
   max-width: 100%;
   overflow: auto;
   white-space: nowrap;
+
+  @media (max-width: 320px) {
+    gap: 0 8px;
+  }
 `;
 
 export const ShowList = styled.div`

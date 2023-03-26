@@ -17,6 +17,16 @@ export const Input = styled.input`
     width: 320px;
     border: 1px solid #777f87;
   }
+
+  @media (max-width: 320px) {
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      width: 92vw;
+      border: 1px solid #777f87;
+    }
+  }
 `;
 
 export const SearchIcon = styled.div`
@@ -44,6 +54,11 @@ export const SuggestList = styled.div`
   border: 1px solid #777f87;
 
   z-index: 1;
+
+  @media (max-width: 320px) {
+      width: 96vw;
+    }
+  }
 `;
 
 export const SuggestListLabel = styled.span`

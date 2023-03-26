@@ -33,6 +33,10 @@ export const CardImg = styled.div`
   background-image: url(${(p) => p.url});
   padding: 8px;
   border-radius: 8px;
+
+  @media (max-width: 320px) {
+    width: 95vw;
+  }
 `;
 
 const iconChooser = (isFavorite) => {
