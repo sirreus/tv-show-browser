@@ -39,7 +39,10 @@ const TvShowPage = () => {
     <PageWrap>
       <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
-        <GoBackButton onClick={() => navigate(routes.main)}>
+        <GoBackButton
+          data-testid="go-back-button"
+          onClick={() => navigate(routes.main)}
+        >
           <GoBackButtonIcon />
         </GoBackButton>
         <PageTitle>{showInfo?.name}</PageTitle>
@@ -51,16 +54,20 @@ const TvShowPage = () => {
 
       {showInfo && !showInfoError && (
         <InfoBlock>
-          <Cover url={showInfo?.image?.original || showInfo?.image?.medium} />
-          <ShowDetails>
+          <Cover
+            data-testid="show-cover"
+            url={showInfo?.image?.original || showInfo?.image?.medium}
+          />
+          <ShowDetails data-testid="show-details">
             <ShowDetailsText>{genres}</ShowDetailsText>
             <ShowDetailsText>{`premiered: ${showInfo?.premiered}`}</ShowDetailsText>
             <ShowDetailsText>{`rating: ${showInfo?.rating.average}`}</ShowDetailsText>
             {showSeasonsError && <>The list of seasons not loaded</>}
             {showSeasons && !showSeasonsError && (
-              <ShowSeasonList>
+              <ShowSeasonList data-testid="show-seasons-list">
                 {showSeasons.map((season) => (
                   <ShowSeasonLink
+                    data-testid="show-season"
                     onClick={() =>
                       navigate(`/tv-show/${id}/season/${season.number}`)
                     }

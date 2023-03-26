@@ -50,8 +50,6 @@ const SearchBar = () => {
 
   const { data } = api.getSearch({ searchInput });
 
-  console.log(JSON.stringify(data));
-
   const fetchLastSearch = () => {
     setOverlayVisible(true);
     const lastSearch = getLastSearch();
@@ -69,6 +67,7 @@ const SearchBar = () => {
     <>
       <Overlay isVisible={isOverlayVisible} />
       <div
+        data-testid="search-bar"
         style={{ position: "relative" }}
         onBlur={() => {
           setLastSearch([]);

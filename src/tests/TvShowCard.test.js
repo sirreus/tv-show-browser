@@ -1,13 +1,14 @@
 /* eslint-disable import/first */
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import { fetchData } from "./testData";
 import ShowCard from "../components/ShowCard";
 
+const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useNavigate: () => jest.fn(),
+  useNavigate: () => mockNavigate,
 }));
 
 const setupComponent = () => {
@@ -20,7 +21,7 @@ describe("Render TV Show card", () => {
 
     const showData = fetchData.data[0];
 
-    expect(screen.getByTestId("show-img")).toHaveStyle(
+    expect(screen.getByTestId(`show-img-${showData.id}`)).toHaveStyle(
       `background-image: url(${showData.image.original})`
     );
     expect(screen.getByTestId("show-name")).toHaveTextContent(showData.name);
@@ -29,5 +30,16 @@ describe("Render TV Show card", () => {
       showData.premiered,
       showData.rating.average
     );
+  });
+
+  test("click on show card should navigate to Show page", () => {
+    setupComponent();
+
+    const showData = fetchData.data[0];
+
+    const card = screen.getByTestId(`show-img-${showData.id}`);
+    fireEvent.click(card);
+
+    expect(mockNavigate).toHaveBeenCalledWith(`/tv-show/${showData.id}`);
   });
 });

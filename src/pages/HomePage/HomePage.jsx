@@ -129,7 +129,7 @@ const HomePage = () => {
       {displayedShows && !error && (
         <>
           <h2>TV Shows</h2>
-          <ShowList>
+          <ShowList data-testid="show-list">
             {displayedShows.map((show) => (
               <ShowCard
                 data={show}
@@ -147,7 +147,7 @@ const HomePage = () => {
       )}
 
       {/* PAGINATION SECTION */}
-      <Pagination>
+      <Pagination data-testid="pagination">
         {isMobile ? (
           <ShowMoreButton onClick={loadMoreShow}>Show more</ShowMoreButton>
         ) : (

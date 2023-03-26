@@ -19,7 +19,7 @@ const ShowCard = ({ data, toggleFavorites, isFavorite }) => {
     <CardWrap data-testid="show-card">
       <FavoriteIcon onClick={toggleFavorites} isFavorite={isFavorite} />
       <CardImg
-        data-testid="show-img"
+        data-testid={`show-img-${data.id}`}
         url={data.image.original}
         onClick={() => navigate(`/tv-show/${data.id}`)}
       >
