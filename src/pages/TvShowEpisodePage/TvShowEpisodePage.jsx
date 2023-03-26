@@ -12,7 +12,6 @@ import {
   PageHeader,
   PageTitle,
   InfoBlock,
-  Cover,
   InfoBlockTitle,
   SummaryText,
   Alert,
