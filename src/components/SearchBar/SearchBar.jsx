@@ -7,7 +7,9 @@ import {
   getLastSearch,
   updateLastSearch,
 } from "../../utils/search";
+
 import {
+  Overlay,
   Input,
   SearchIcon,
   SuggestList,
@@ -20,6 +22,7 @@ const SearchBar = () => {
 
   const [searchInput, setSearchInput] = useState("");
   const [isVisible, setSuggestListVisible] = useState(false);
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
   const [lastSearch, setLastSearch] = useState([]);
 
   const handleChange = ({ value }) => {
@@ -48,6 +51,7 @@ const SearchBar = () => {
   const { data } = api.getSearch({ searchInput });
 
   const fetchLastSearch = () => {
+    setOverlayVisible(true);
     const lastSearch = getLastSearch();
 
     const data = Object.values(lastSearch).length
@@ -60,33 +64,45 @@ const SearchBar = () => {
   const suggestData = data && data.length > 0 ? data : lastSearch;
 
   return (
-    <div style={{ position: "relative" }}>
-      <Input
-        type="text"
-        placeholder="go ahead!"
-        value={searchInput}
-        onChange={(e) => handleChange(e.target)}
-        onFocus={() => fetchLastSearch()}
-        onBlur={() => setLastSearch([])}
-      />
-      <SearchIcon />
+    <>
+      <Overlay isVisible={isOverlayVisible} />
+      <div
+        style={{ position: "relative" }}
+        onBlur={() => {
+          setLastSearch([]);
+          setOverlayVisible(false);
+        }}
+      >
+        <Input
+          type="text"
+          placeholder="go ahead!"
+          value={searchInput}
+          onChange={(e) => handleChange(e.target)}
+          onFocus={() => fetchLastSearch()}
+          onBlur={() => {
+            setLastSearch([]);
+            setOverlayVisible(false);
+          }}
+        />
+        <SearchIcon />
 
-      {suggestData && suggestData.length > 0 && (
-        <SuggestList isVisible={lastSearch.length > 0 || isVisible}>
-          <SuggestListLabel>
-            {data && data.length > 0 ? "Suggestions" : "Last search"}
-          </SuggestListLabel>
-          {suggestData.map(({ show }) => (
-            <SuggestListItem
-              onClick={() => selectShowFromSearch(show)}
-              key={show?.id}
-            >
-              {show?.name}
-            </SuggestListItem>
-          ))}
-        </SuggestList>
-      )}
-    </div>
+        {suggestData && suggestData.length > 0 && (
+          <SuggestList isVisible={lastSearch.length > 0 || isVisible}>
+            <SuggestListLabel>
+              {data && data.length > 0 ? "Suggestions" : "Last search"}
+            </SuggestListLabel>
+            {suggestData.map(({ show }) => (
+              <SuggestListItem
+                onClick={() => selectShowFromSearch(show)}
+                key={show?.id}
+              >
+                {show?.name}
+              </SuggestListItem>
+            ))}
+          </SuggestList>
+        )}
+      </div>
+    </>
   );
 };
 

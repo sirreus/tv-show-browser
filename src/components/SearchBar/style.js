@@ -1,7 +1,22 @@
 import styled from "styled-components/macro";
 import searchIcon from "../../assets/search-icon.svg";
 
+export const Overlay = styled.div`
+  position: fixed;
+  display: ${(p) => (p.isVisible ? "block" : "none")};
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  cursor: pointer;
+`;
+
 export const Input = styled.input`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 180px;
@@ -11,11 +26,13 @@ export const Input = styled.input`
   border: 0.5px solid #c9cdd1;
   background: #f3f4f5;
   color: #444c53;
+  z-index: 2;
 
   &:focus {
     outline: none;
     width: 320px;
     border: 1px solid #777f87;
+    z-index: 2;
   }
 
   @media (max-width: 320px) {
@@ -53,7 +70,7 @@ export const SuggestList = styled.div`
   border-radius: 8px;
   border: 1px solid #777f87;
 
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: 320px) {
       width: 96vw;
