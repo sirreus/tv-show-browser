@@ -20,9 +20,9 @@ import { SeasonEpisodeInfoWrapper, SeasonEpisodeList, BoldText, Text } from './s
 const TvShowSeasonPage = () => {
   const navigate = useNavigate()
   const { id, seasonNumber } = useParams()
+  const plug = 777
 
   const [currentSeason, setCurrentSeason] = useState(null)
-  // const [seasonsEpisodes, setSeasonsEpisodes] = useState(null);
 
   const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
     showId: id,
@@ -43,7 +43,7 @@ const TvShowSeasonPage = () => {
 
   const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
     api.getTvShowSeasonsEpisodes({
-      seasonId: currentSeason?.id,
+      seasonId: currentSeason?.id || plug,
     })
 
   if (showSeasonsError || showInfoError)

@@ -23,6 +23,7 @@ const TvShowEpisodePage = () => {
   const navigate = useNavigate()
   const isMobile = useMedia()
   const { id, seasonNumber, episodeNumber } = useParams()
+  const plug = 777
 
   const [seasonId, setSeasonId] = useState(null)
   const [episodeData, setEpisodeData] = useState(null)
@@ -47,7 +48,7 @@ const TvShowEpisodePage = () => {
 
   const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
     api.getTvShowSeasonsEpisodes({
-      seasonId,
+      seasonId: seasonId || plug,
     })
 
   useEffect(() => {
