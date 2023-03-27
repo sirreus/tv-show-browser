@@ -25,7 +25,7 @@ export const CardWrap = styled.div`
   }
 `
 
-export const CardImg = styled.a`
+export const CardImg = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,6 @@ export const CardImg = styled.a`
   background-image: url(${(p) => p.url});
   padding: 8px;
   border-radius: 8px;
-  text-decoration: none;
 `
 
 const iconChooser = (isFavorite) => {
