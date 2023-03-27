@@ -62,7 +62,9 @@ const TvShowSeasonPage = () => {
       </PageHeader>
 
       {showSeasonsError && (
-        <Alert>The Season data doesn't loaded!...try to reload a page.</Alert>
+        <Alert>
+          The Season data doesn't loaded!...try to reload a page or go back to main page.
+        </Alert>
       )}
 
       {currentSeason && !showSeasonsError && (
@@ -82,13 +84,7 @@ const TvShowSeasonPage = () => {
                 !SeasonsEpisodesError &&
                 seasonsEpisodes.map((episode) => (
                   <div key={episode?.number} data-testid="season-episode">
-                    <BoldText
-                      onClick={() =>
-                        navigate(
-                          `/tv-app/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
-                        )
-                      }
-                    >
+                    <BoldText onClick={() => navigate(`episode/${episode?.number}`)}>
                       {`Episode ${episode?.number}:`}
                       <Text>{episode?.name}</Text>
                     </BoldText>

@@ -1,6 +1,6 @@
 module.exports = {
-  main: 'tv-app/',
-  tvShow: 'tv-app/tv-show/:id',
-  tvShowSeason: 'tv-app/tv-show/:id/season/:seasonNumber',
-  tvShowEpisode: 'tv-app/tv-show/:id/season/:seasonNumber/episode/:episodeNumber',
+  main: 'main',
+  tvShow: 'main/show/:id',
+  tvShowSeason: 'main/show/:id/season/:seasonNumber',
+  tvShowEpisode: 'main/show/:id/season/:seasonNumber/episode/:episodeNumber',
 }

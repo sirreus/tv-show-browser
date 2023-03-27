@@ -39,7 +39,9 @@ const TvShowPage = () => {
       </PageHeader>
 
       {showInfoError && (
-        <Alert>The TV Show data doesn't loaded!...try to reload a page.</Alert>
+        <Alert>
+          The TV Show data doesn't loaded!...try to reload a page or go back to main page.
+        </Alert>
       )}
 
       {showInfo && !showInfoError && (
@@ -58,9 +60,8 @@ const TvShowPage = () => {
                 {showSeasons.map((season) => (
                   <ShowSeasonLink
                     data-testid="show-season"
-                    onClick={() =>
-                      navigate(`/tv-app/tv-show/${id}/season/${season.number}`)
-                    }
+                    // onClick={() => navigate(`main/tv-show/${id}/season/${season.number}`)}
+                    onClick={() => navigate(`season/${season.number}`)}
                     key={season.id}
                   >
                     {`Season ${season?.number}`}

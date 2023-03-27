@@ -51,7 +51,7 @@ describe('Render TV SHow page', () => {
     fireEvent.click(season)
 
     expect(mockNavigate).toHaveBeenCalledWith(
-      `/tv-app/tv-show/${showData?.data?.id}/season/${showSeasonData.data[randomSeason].number}`
+      `season/${showSeasonData.data[randomSeason].number}`
     )
   })
 

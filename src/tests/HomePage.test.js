@@ -69,8 +69,6 @@ describe('Render Home page tests', () => {
 
     fireEvent.click(card)
 
-    expect(mockNavigate).toHaveBeenCalledWith(
-      `tv-show/${fetchDataFull.data[randomCard].id}`
-    )
+    expect(mockNavigate).toHaveBeenCalledWith(`show/${fetchDataFull.data[randomCard].id}`)
   })
 })

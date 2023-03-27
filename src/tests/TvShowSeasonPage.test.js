@@ -66,9 +66,7 @@ describe('Render TV SHow Season page', () => {
 
     fireEvent.click(episode)
 
-    expect(mockNavigate).toHaveBeenCalledWith(
-      `/tv-app/tv-show/${showData.data.id}/season/${seasonNumber}/episode/${selectedEpisode?.number}`
-    )
+    expect(mockNavigate).toHaveBeenCalledWith(`episode/${selectedEpisode?.number}`)
   })
 
   it('click on logo should navigate to Home page', () => {

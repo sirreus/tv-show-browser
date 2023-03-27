@@ -40,6 +40,6 @@ describe('Render TV Show card', () => {
     const card = screen.getByTestId(`show-img-${showData.id}`)
     fireEvent.click(card)
 
-    expect(mockNavigate).toHaveBeenCalledWith(`tv-show/${showData.id}`)
+    expect(mockNavigate).toHaveBeenCalledWith(`show/${showData.id}`)
   })
 })
