@@ -1,6 +1,6 @@
-import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import moment from 'moment'
 
 import api from '../../api'
 import { useMedia } from '../../hooks/media'
@@ -73,10 +73,10 @@ const TvShowEpisodePage = () => {
     <PageWrap>
       <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
-        <GoBackButton onClick={() => navigate(-1)}>
+        <GoBackButton data-testid="go-back-button" onClick={() => navigate(-1)}>
           <GoBackButtonIcon />
         </GoBackButton>
-        <PageTitle>{`${showInfo?.name} / Season ${seasonNumber} / Episode ${episodeNumber}`}</PageTitle>
+        <PageTitle data-testid="page-title">{`${showInfo?.name} / Season ${seasonNumber} / Episode ${episodeNumber}`}</PageTitle>
       </PageHeader>
 
       <InfoBlock vertical paddingAside={isMobile ? 8 : 16}>
@@ -84,13 +84,19 @@ const TvShowEpisodePage = () => {
           <Alert>Episode info doesn't loaded!...try to reload a page.</Alert>
         ) : (
           <>
-            {isMobile && <EpisodeCover url={episodeData?.image.original} />}
-            <InfoBlockTitle noMargin fontSize={24}>
+            {isMobile && (
+              <EpisodeCover url={episodeData?.image.original} data-testid="episode-cover" />
+            )}
+            <InfoBlockTitle noMargin fontSize={24} data-testid="episode-name">
               {episodeData?.name}
             </InfoBlockTitle>
-            <Airstamp>{formatDate(episodeData?.airstamp)}</Airstamp>
-            {!isMobile && <EpisodeCover url={episodeData?.image.original} />}
-            <SummaryText>{getSummaryText()}</SummaryText>
+            <Airstamp data-testid="episode-airstamp">
+              {formatDate(episodeData?.airstamp)}
+            </Airstamp>
+            {!isMobile && (
+              <EpisodeCover url={episodeData?.image.original} data-testid="episode-cover" />
+            )}
+            <SummaryText data-testid="episode-summary">{getSummaryText()}</SummaryText>
           </>
         )}
       </InfoBlock>

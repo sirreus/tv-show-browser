@@ -23,7 +23,7 @@ const setupComponent = () => {
 
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min
 
-describe('Render TV SHow page', () => {
+describe('Render TV SHow Season page', () => {
   const seasonNumber = '4'
   const currentSeason = showSeasonData.data.find(
     (season) => season.number === Number(seasonNumber)
