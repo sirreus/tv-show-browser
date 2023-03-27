@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro'
 
 export const SeasonEpisodeInfoWrapper = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const SeasonEpisodeInfoWrapper = styled.div`
     overflow: auto;
     margin: 8px 0;
   }
-`;
+`
 
 export const SeasonEpisodeList = styled.div`
   display: flex;
@@ -19,17 +19,17 @@ export const SeasonEpisodeList = styled.div`
   @media (max-width: 375px) {
     margin: 0;
   }
-`;
+`
 
 export const BoldText = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
   font-weight: 600;
-  cursor: ${(p) => (p.onClick ? "pointer" : "default")}; ;
-`;
+  cursor: ${(p) => (p.onClick ? 'pointer' : 'default')};
+`
 
 export const Text = styled.span`
   margin-left: 8px;
   font-weight: 400;
-`;
+`

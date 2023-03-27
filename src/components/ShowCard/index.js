@@ -1,3 +1,3 @@
-import ShowCard from "./ShowCard";
+import ShowCard from './ShowCard'
 
-export default ShowCard;
+export default ShowCard

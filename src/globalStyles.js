@@ -1,10 +1,10 @@
-import styled from "styled-components/macro";
-import arrowIcon from "./assets/arrow-go-back.svg";
+import styled from 'styled-components/macro'
+import arrowIcon from './assets/arrow-go-back.svg'
 
 export const PageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${(p) => (p.isMobile ? "95vw" : "1024px")};
+  width: ${(p) => (p.isMobile ? '95vw' : '1024px')};
   margin: 32px auto;
 
   @media (max-width: 375px) {
@@ -12,7 +12,7 @@ export const PageWrap = styled.div`
     padding: 0 8px;
     margin: 16px 0 0 0;
   }
-`;
+`
 
 export const Logo = styled.div`
   text-align: center;
@@ -20,14 +20,14 @@ export const Logo = styled.div`
   color: #64648e;
 
   cursor: pointer;
-`;
+`
 
 export const PageHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
-`;
+`
 
 export const GoBackButton = styled.div`
   width: 32px;
@@ -41,7 +41,7 @@ export const GoBackButton = styled.div`
     background-color: rgb(225, 225, 250);
     box-shadow: 0 0 8px rgb(161, 161, 210);
   }
-`;
+`
 
 export const GoBackButtonIcon = styled.div`
   width: 32px;
@@ -52,7 +52,7 @@ export const GoBackButtonIcon = styled.div`
   background-position: center;
   background-size: cover;
   cursor: pointer;
-`;
+`
 
 export const PageTitle = styled.h2`
   font-size: 32px;
@@ -62,11 +62,11 @@ export const PageTitle = styled.h2`
     font-size: 26px;
     margin: 20px 0;
   }
-`;
+`
 
 export const InfoBlock = styled.div`
   display: flex;
-  flex-direction: ${(p) => (p.vertical ? "column" : "row")};
+  flex-direction: ${(p) => (p.vertical ? 'column' : 'row')};
   justify-content: flex-start;
   box-shadow: 0 0 8px #ccc;
   border-radius: 4px;
@@ -84,13 +84,13 @@ export const InfoBlock = styled.div`
     margin: 0;
     height: 88vh;
   }
-`;
+`
 
 export const Cover = styled.div`
   position: relative;
   max-width: 992px;
-  width: ${(p) => (p.fullSize ? "95vw" : "338px")};
-  height: ${(p) => (p.height ? `${p.height}px` : "480px")};
+  width: ${(p) => (p.fullSize ? '95vw' : '338px')};
+  height: ${(p) => (p.height ? `${p.height}px` : '480px')};
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -115,22 +115,22 @@ export const Cover = styled.div`
     background-size: cover;
     background-position: top;
   }
-`;
+`
 
 export const InfoBlockTitle = styled.div`
-  margin: ${(p) => (p.noMargin ? "0" : "0px 16px")};
+  margin: ${(p) => (p.noMargin ? '0' : '0px 16px')};
   padding: 8px;
   ${(p) => p.fontSize && `font-size: ${p.fontSize}px`};
 
   @media (max-width: 375px) {
     margin: 0;
   }
-`;
+`
 
 export const SummaryText = styled.div`
   padding: 8px;
   margin-bottom: 16px;
-`;
+`
 
 export const Alert = styled.div`
   display: flex;
@@ -141,4 +141,4 @@ export const Alert = styled.div`
   border-radius: 4px;
   background: #faf2f2;
   color: #712c2c;
-`;
+`

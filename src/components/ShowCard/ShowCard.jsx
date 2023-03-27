@@ -1,19 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import {
-  CardImg,
-  CardInfo,
-  CardInfoText,
-  CardTitle,
-  CardWrap,
-  FavoriteIcon,
-} from "./style";
+import { CardImg, CardInfo, CardInfoText, CardTitle, CardWrap, FavoriteIcon } from './style'
 
 const ShowCard = ({ data, toggleFavorites, isFavorite }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const genres = data.genres.join(", ");
+  const genres = data.genres.join(', ')
 
   return (
     <CardWrap data-testid="show-card">
@@ -31,7 +24,7 @@ const ShowCard = ({ data, toggleFavorites, isFavorite }) => {
         </CardInfo>
       </CardImg>
     </CardWrap>
-  );
-};
+  )
+}
 
-export default ShowCard;
+export default ShowCard

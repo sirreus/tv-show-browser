@@ -1,0 +1,23 @@
+name: Test React App
+
+on:
+  push:
+    paths:
+      - "./**"
+      - ".github/workflows/test-react-app.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+          cache-dependency-path: ./package-lock.json
+      - run: npm install
+      - run: npm run lint
+      - name: Run React-component tests
+        run: npm run test:ci

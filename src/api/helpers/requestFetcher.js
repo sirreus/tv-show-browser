@@ -1,3 +1,3 @@
-import axios from "axios";
+import axios from 'axios'
 
-export const requestFetcher = (url) => axios.get(url).then((res) => res.data);
+export const requestFetcher = (url) => axios.get(url).then((res) => res.data)

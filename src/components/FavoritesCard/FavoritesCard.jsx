@@ -1,22 +1,19 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import { CardWrap, CardImg, FavoriteIcon, CardTitle } from "./style";
+import { CardWrap, CardImg, FavoriteIcon, CardTitle } from './style'
 
 const FavoriteCard = ({ data, toggleFavorites, isFavorite }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <CardWrap>
       <FavoriteIcon onClick={toggleFavorites} isFavorite={isFavorite} />
-      <CardImg
-        url={data.image.original}
-        onClick={() => navigate(`/tv-show/${data.id}`)}
-      >
+      <CardImg url={data.image.original} onClick={() => navigate(`/tv-show/${data.id}`)}>
         <CardTitle id="card-title">{data.name}</CardTitle>
       </CardImg>
     </CardWrap>
-  );
-};
+  )
+}
 
-export default FavoriteCard;
+export default FavoriteCard

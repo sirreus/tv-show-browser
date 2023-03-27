@@ -1,3 +1,3 @@
-import TvShowPage from "./TvShowPage";
+import TvShowPage from './TvShowPage'
 
-export default TvShowPage;
+export default TvShowPage

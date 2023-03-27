@@ -1,9 +1,9 @@
-import styled from "styled-components/macro";
-import searchIcon from "../../assets/search-icon.svg";
+import styled from 'styled-components/macro'
+import searchIcon from '../../assets/search-icon.svg'
 
 export const Overlay = styled.div`
   position: fixed;
-  display: ${(p) => (p.isVisible ? "block" : "none")};
+  display: ${(p) => (p.isVisible ? 'block' : 'none')};
   width: 100%;
   height: 100%;
   top: 0;
@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   cursor: pointer;
-`;
+`
 
 export const Input = styled.input`
   position: relative;
@@ -44,7 +44,7 @@ export const Input = styled.input`
       border: 1px solid #777f87;
     }
   }
-`;
+`
 
 export const SearchIcon = styled.div`
   position: absolute;
@@ -55,13 +55,13 @@ export const SearchIcon = styled.div`
   background-image: url(${searchIcon});
   z-index: 1;
   opacity: 0.6;
-`;
+`
 
 export const SuggestList = styled.div`
   position: absolute;
   top: 40px;
   right: 0;
-  display: ${(p) => (p.isVisible ? "flex" : "none")};
+  display: ${(p) => (p.isVisible ? 'flex' : 'none')};
   flex-direction: column;
   width: 332px;
   height: fit-content;
@@ -76,13 +76,13 @@ export const SuggestList = styled.div`
       width: 91vw;
     }
   }
-`;
+`
 
 export const SuggestListLabel = styled.span`
   padding: 6px;
   font-size: 12px;
   color: #444c53;
-`;
+`
 
 export const SuggestListItem = styled.div`
   display: flex;
@@ -99,4 +99,4 @@ export const SuggestListItem = styled.div`
   &:hover {
     color: #2d353e;
   }
-`;
+`

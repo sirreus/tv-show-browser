@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
-import api from "../../api";
+import api from '../../api'
 
 import {
   PageWrap,
@@ -14,50 +14,43 @@ import {
   InfoBlockTitle,
   Alert,
   Logo,
-} from "../../globalStyles";
-import routes from "../../routes";
-import {
-  SeasonEpisodeInfoWrapper,
-  SeasonEpisodeList,
-  BoldText,
-  Text,
-} from "./style";
+} from '../../globalStyles'
+import routes from '../../routes'
+import { SeasonEpisodeInfoWrapper, SeasonEpisodeList, BoldText, Text } from './style'
 
 const TvShowSeasonPage = () => {
-  const navigate = useNavigate();
-  const { id, seasonNumber } = useParams();
+  const navigate = useNavigate()
+  const { id, seasonNumber } = useParams()
 
-  const [currentSeason, setCurrentSeason] = useState(null);
+  const [currentSeason, setCurrentSeason] = useState(null)
   // const [seasonsEpisodes, setSeasonsEpisodes] = useState(null);
 
   const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
     showId: id,
-  });
+  })
 
   const { data: showSeasons, error: showSeasonsError } = api.getTvShowSeasons({
     showId: id,
-  });
+  })
 
   useEffect(() => {
     if (showSeasons && seasonNumber) {
       const seasonData = showSeasons.find(
         (season) => season?.number === Number(seasonNumber)
-      );
-      setCurrentSeason(seasonData);
+      )
+      setCurrentSeason(seasonData)
     }
-  }, [seasonNumber, showSeasons]);
+  }, [seasonNumber, showSeasons])
 
   const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
     api.getTvShowSeasonsEpisodes({
       seasonId: currentSeason?.id,
-    });
+    })
 
   if (showSeasonsError || showInfoError)
-    return <>Something went wrong!...please reload a page.</>;
+    return <>Something went wrong!...please reload a page.</>
 
-  const episodesAmount = seasonsEpisodes
-    ? `(${seasonsEpisodes.length} Episodes)`
-    : "";
+  const episodesAmount = seasonsEpisodes ? `(${seasonsEpisodes.length} Episodes)` : ''
 
   return (
     <PageWrap>
@@ -66,9 +59,7 @@ const TvShowSeasonPage = () => {
         <GoBackButton onClick={() => navigate(-1)}>
           <GoBackButtonIcon />
         </GoBackButton>
-        <PageTitle>
-          {`${showInfo?.name} / Season ${seasonNumber} ${episodesAmount}`}
-        </PageTitle>
+        <PageTitle>{`${showInfo?.name} / Season ${seasonNumber} ${episodesAmount}`}</PageTitle>
       </PageHeader>
 
       {showSeasonsError && (
@@ -87,9 +78,7 @@ const TvShowSeasonPage = () => {
             </InfoBlockTitle>
 
             <SeasonEpisodeList>
-              {SeasonsEpisodesError && (
-                <Alert>List of Episodes doesn't loaded</Alert>
-              )}
+              {SeasonsEpisodesError && <Alert>List of Episodes doesn't loaded</Alert>}
               {seasonsEpisodes &&
                 !SeasonsEpisodesError &&
                 seasonsEpisodes.map((episode) => (
@@ -111,7 +100,7 @@ const TvShowSeasonPage = () => {
         </InfoBlock>
       )}
     </PageWrap>
-  );
-};
+  )
+}
 
-export default TvShowSeasonPage;
+export default TvShowSeasonPage

@@ -1,3 +1,3 @@
-import TvShowEpisodePage from "./TvShowEpisodePage";
+import TvShowEpisodePage from './TvShowEpisodePage'
 
-export default TvShowEpisodePage;
+export default TvShowEpisodePage

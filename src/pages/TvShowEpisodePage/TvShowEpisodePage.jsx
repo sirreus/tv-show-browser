@@ -1,9 +1,9 @@
-import moment from "moment";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import moment from 'moment'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
-import api from "../../api";
-import { useMedia } from "../../hooks/media";
+import api from '../../api'
+import { useMedia } from '../../hooks/media'
 
 import {
   PageWrap,
@@ -16,58 +16,58 @@ import {
   SummaryText,
   Alert,
   Logo,
-} from "../../globalStyles";
-import { Airstamp, EpisodeCover } from "./style";
-import routes from "../../routes";
+} from '../../globalStyles'
+import { Airstamp, EpisodeCover } from './style'
+import routes from '../../routes'
 
 const TvShowEpisodePage = () => {
-  const navigate = useNavigate();
-  const isMobile = useMedia();
-  const { id, seasonNumber, episodeNumber } = useParams();
+  const navigate = useNavigate()
+  const isMobile = useMedia()
+  const { id, seasonNumber, episodeNumber } = useParams()
 
-  const [seasonId, setSeasonId] = useState(null);
-  const [episodeData, setEpisodeData] = useState(null);
+  const [seasonId, setSeasonId] = useState(null)
+  const [episodeData, setEpisodeData] = useState(null)
 
   const { data: showInfo } = api.getTvShowInfo({
     showId: id,
-  });
+  })
 
   const { data: showSeasons, error: showSeasonsError } = api.getTvShowSeasons({
     showId: id,
-  });
+  })
 
   useEffect(() => {
     if (showSeasons && seasonNumber) {
       const seasonData = showSeasons.find(
         (season) => season?.number === Number(seasonNumber)
-      );
+      )
 
-      setSeasonId(seasonData?.id);
+      setSeasonId(seasonData?.id)
     }
-  }, [seasonNumber, showSeasons]);
+  }, [seasonNumber, showSeasons])
 
   const { data: seasonsEpisodes, error: SeasonsEpisodesError } =
     api.getTvShowSeasonsEpisodes({
       seasonId,
-    });
+    })
 
   useEffect(() => {
     if (seasonsEpisodes && episodeNumber) {
       const episodeData = seasonsEpisodes.find(
         (episodes) => episodes?.number === Number(episodeNumber)
-      );
+      )
 
-      setEpisodeData(episodeData);
+      setEpisodeData(episodeData)
     }
-  }, [seasonsEpisodes, episodeNumber]);
+  }, [seasonsEpisodes, episodeNumber])
 
   const getSummaryText = () => {
-    return episodeData?.summary.split("<p>")[1].split("</p>")[0];
-  };
+    return episodeData?.summary.split('<p>')[1].split('</p>')[0]
+  }
 
   const formatDate = (date) => {
-    return moment(date).format("YYYY MMMM Do HH:mm");
-  };
+    return moment(date).format('YYYY MMMM Do HH:mm')
+  }
 
   return (
     <PageWrap>
@@ -95,7 +95,7 @@ const TvShowEpisodePage = () => {
         )}
       </InfoBlock>
     </PageWrap>
-  );
-};
+  )
+}
 
-export default TvShowEpisodePage;
+export default TvShowEpisodePage

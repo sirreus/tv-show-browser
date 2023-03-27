@@ -1,6 +1,6 @@
-import styled from "styled-components/macro";
-import favoriteOutline from "../../assets/favorite-outline.svg";
-import favoriteFilled from "../../assets/favorite-filled.svg";
+import styled from 'styled-components/macro'
+import favoriteOutline from '../../assets/favorite-outline.svg'
+import favoriteFilled from '../../assets/favorite-filled.svg'
 
 export const CardWrap = styled.div`
   position: relative;
@@ -23,7 +23,7 @@ export const CardWrap = styled.div`
   &:hover #card-title {
     display: flex;
   }
-`;
+`
 
 export const CardImg = styled.div`
   position: relative;
@@ -37,11 +37,11 @@ export const CardImg = styled.div`
   background-image: url(${(p) => p.url});
   padding: 8px;
   border-radius: 8px;
-`;
+`
 
 const iconChooser = (isFavorite) => {
-  return isFavorite ? favoriteFilled : favoriteOutline;
-};
+  return isFavorite ? favoriteFilled : favoriteOutline
+}
 
 export const FavoriteIcon = styled.div`
   position: absolute;
@@ -53,7 +53,7 @@ export const FavoriteIcon = styled.div`
   background-size: cover;
   background-image: url(${(p) => iconChooser(p.isFavorite)});
   z-index: 1;
-`;
+`
 
 export const CardTitle = styled.div`
   display: none;
@@ -64,4 +64,4 @@ export const CardTitle = styled.div`
   background: white;
   color: black;
   opacity: 0.7;
-`;
+`

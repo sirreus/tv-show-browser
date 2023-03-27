@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro'
 
 export const ShowDetails = styled.div`
   display: flex;
@@ -11,11 +11,11 @@ export const ShowDetails = styled.div`
     width: fit-content;
     margin: 0;
   }
-`;
+`
 
 export const ShowDetailsText = styled.div`
   margin: 4px 0;
-`;
+`
 
 export const ShowSeasonList = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const ShowSeasonList = styled.div`
   flex-direction: row;
   gap: 8px;
   margin: 8px 0;
-`;
+`
 
 export const ShowSeasonLink = styled.div`
   width: fit-content;
@@ -40,4 +40,4 @@ export const ShowSeasonLink = styled.div`
   @media (max-width: 450px) {
     font-size: 12px;
   }
-`;
+`

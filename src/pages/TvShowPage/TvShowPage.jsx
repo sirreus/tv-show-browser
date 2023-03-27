@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import api from "../../api";
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import api from '../../api'
 
 import {
   PageWrap,
@@ -12,37 +12,29 @@ import {
   Cover,
   Alert,
   Logo,
-} from "../../globalStyles";
-import {
-  ShowDetails,
-  ShowDetailsText,
-  ShowSeasonLink,
-  ShowSeasonList,
-} from "./style";
+} from '../../globalStyles'
+import { ShowDetails, ShowDetailsText, ShowSeasonLink, ShowSeasonList } from './style'
 
-import routes from "../../routes";
+import routes from '../../routes'
 
 const TvShowPage = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
+  const navigate = useNavigate()
+  const { id } = useParams()
 
   const { data: showInfo, error: showInfoError } = api.getTvShowInfo({
     showId: id,
-  });
+  })
   const { data: showSeasons, error: showSeasonsError } = api.getTvShowSeasons({
     showId: id,
-  });
+  })
 
-  const genres = showInfo?.genres.join(", ");
+  const genres = showInfo?.genres.join(', ')
 
   return (
     <PageWrap>
       <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
-        <GoBackButton
-          data-testid="go-back-button"
-          onClick={() => navigate(routes.main)}
-        >
+        <GoBackButton data-testid="go-back-button" onClick={() => navigate(routes.main)}>
           <GoBackButtonIcon />
         </GoBackButton>
         <PageTitle>{showInfo?.name}</PageTitle>
@@ -68,9 +60,7 @@ const TvShowPage = () => {
                 {showSeasons.map((season) => (
                   <ShowSeasonLink
                     data-testid="show-season"
-                    onClick={() =>
-                      navigate(`/tv-show/${id}/season/${season.number}`)
-                    }
+                    onClick={() => navigate(`/tv-show/${id}/season/${season.number}`)}
                     key={season.id}
                   >
                     {`Season ${season?.number}`}
@@ -82,7 +72,7 @@ const TvShowPage = () => {
         </InfoBlock>
       )}
     </PageWrap>
-  );
-};
+  )
+}
 
-export default TvShowPage;
+export default TvShowPage

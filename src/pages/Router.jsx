@@ -1,14 +1,14 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
-import HomePage from "./HomePage";
-import TvShowPage from "./TvShowPage";
-import TvShowSeasonPage from "./TvShowSeasonPage";
-import TvShowEpisodePage from "./TvShowEpisodePage";
-import routes from "../routes";
+import HomePage from './HomePage'
+import TvShowPage from './TvShowPage'
+import TvShowSeasonPage from './TvShowSeasonPage'
+import TvShowEpisodePage from './TvShowEpisodePage'
+import routes from '../routes'
 
-const history = createBrowserHistory();
+const history = createBrowserHistory()
 
 const Router = () => {
   return (
@@ -18,7 +18,7 @@ const Router = () => {
       <Route path={routes.tvShowSeason} element={<TvShowSeasonPage />} />
       <Route path={routes.tvShowEpisode} element={<TvShowEpisodePage />} />
     </Routes>
-  );
-};
+  )
+}
 
-export default Router;
+export default Router

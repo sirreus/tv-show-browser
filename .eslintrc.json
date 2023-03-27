@@ -1,0 +1,29 @@
+{
+  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+  "plugins": ["react-hooks", "import"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "warn",
+    "import/named": "error",
+    "no-console": "warn"
+  },
+  "settings": {
+    "import/ignore": ["./node_modules/styled-components"]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "extends": ["plugin:jest/all"],
+      "rules": {
+        "import/first": 0,
+        "jest/prefer-lowercase-title": 0,
+        "jest/prefer-expect-assertions": 0,
+        "jest/no-hooks": 0,
+        "jest/require-hook": 0,
+        "jest/prefer-called-with": 0,
+        "node/no-unpublished-require": 0
+      }
+    }
+  ]
+}

@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import api from "../../api";
-import {
-  addToLastSearch,
-  getLastSearch,
-  updateLastSearch,
-} from "../../utils/search";
+import api from '../../api'
+import { addToLastSearch, getLastSearch, updateLastSearch } from '../../utils/search'
 
 import {
   Overlay,
@@ -15,63 +11,61 @@ import {
   SuggestList,
   SuggestListItem,
   SuggestListLabel,
-} from "./style";
+} from './style'
 
 const SearchBar = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [searchInput, setSearchInput] = useState("");
-  const [isVisible, setSuggestListVisible] = useState(false);
-  const [isOverlayVisible, setOverlayVisible] = useState(false);
-  const [lastSearch, setLastSearch] = useState([]);
+  const [searchInput, setSearchInput] = useState('')
+  const [isVisible, setSuggestListVisible] = useState(false)
+  const [isOverlayVisible, setOverlayVisible] = useState(false)
+  const [lastSearch, setLastSearch] = useState([])
 
   const handleChange = ({ value }) => {
-    setSearchInput(value);
+    setSearchInput(value)
 
     if (value) {
-      setSuggestListVisible(true);
+      setSuggestListVisible(true)
     } else {
-      setSuggestListVisible(false);
+      setSuggestListVisible(false)
     }
-  };
+  }
 
   const selectShowFromSearch = (show) => {
-    const lastSearch = getLastSearch();
-    const isShowIncluded = Object.keys(lastSearch).includes(show.id.toString());
+    const lastSearch = getLastSearch()
+    const isShowIncluded = Object.keys(lastSearch).includes(show.id.toString())
 
     if (!isShowIncluded && Object.keys(lastSearch).length !== 5) {
-      addToLastSearch(show);
+      addToLastSearch(show)
     } else if (!isShowIncluded && Object.keys(lastSearch).length === 5) {
-      updateLastSearch(show);
+      updateLastSearch(show)
     }
 
-    navigate(`/tv-show/${show.id}`);
-  };
+    navigate(`/tv-show/${show.id}`)
+  }
 
-  const { data } = api.getSearch({ searchInput });
+  const { data } = api.getSearch({ searchInput })
 
   const fetchLastSearch = () => {
-    setOverlayVisible(true);
-    const lastSearch = getLastSearch();
+    setOverlayVisible(true)
+    const lastSearch = getLastSearch()
 
-    const data = Object.values(lastSearch).length
-      ? Object.values(lastSearch)
-      : [];
+    const data = Object.values(lastSearch).length ? Object.values(lastSearch) : []
 
-    setLastSearch(data);
-  };
+    setLastSearch(data)
+  }
 
-  const suggestData = data && data.length > 0 ? data : lastSearch;
+  const suggestData = data && data.length > 0 ? data : lastSearch
 
   return (
     <>
       <Overlay isVisible={isOverlayVisible} />
       <div
         data-testid="search-bar"
-        style={{ position: "relative" }}
+        style={{ position: 'relative' }}
         onBlur={() => {
-          setLastSearch([]);
-          setOverlayVisible(false);
+          setLastSearch([])
+          setOverlayVisible(false)
         }}
       >
         <Input
@@ -82,9 +76,9 @@ const SearchBar = () => {
           onChange={(e) => handleChange(e.target)}
           onFocus={() => fetchLastSearch()}
           onBlur={() => {
-            setSearchInput("");
-            setLastSearch([]);
-            setOverlayVisible(false);
+            setSearchInput('')
+            setLastSearch([])
+            setOverlayVisible(false)
           }}
         />
         <SearchIcon />
@@ -95,7 +89,7 @@ const SearchBar = () => {
             data-testid="suggest-list"
           >
             <SuggestListLabel>
-              {data && data.length > 0 ? "Suggestions" : "Last search"}
+              {data && data.length > 0 ? 'Suggestions' : 'Last search'}
             </SuggestListLabel>
             {suggestData.map(({ show }) => (
               <SuggestListItem
@@ -110,7 +104,7 @@ const SearchBar = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
