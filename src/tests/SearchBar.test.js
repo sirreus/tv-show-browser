@@ -53,6 +53,6 @@ describe('Search bar', () => {
     fireEvent.change(inputEl, { target: { value: inputName } })
 
     const suggestListItemEl = screen.getAllByTestId('suggest-list-item')
-    expect(suggestListItemEl.length).toHaveLength(10)
+    expect(suggestListItemEl).toHaveLength(10)
   })
 })

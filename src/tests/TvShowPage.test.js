@@ -36,9 +36,9 @@ describe('Render TV SHow page', () => {
     expect(screen.getByTestId('show-cover')).toBeInTheDocument()
     expect(screen.getByTestId('show-details')).toBeInTheDocument()
     expect(screen.getByTestId('show-seasons-list')).toBeInTheDocument()
-    expect(screen.getAllByTestId('show-season').length).toHaveLength(
-      showSeasonData.data.length
-    )
+
+    const seasonArr = screen.getAllByTestId('show-season')
+    expect(seasonArr).toHaveLength(showSeasonData.data.length)
   })
 
   it('click on season button should navigate to season page', () => {

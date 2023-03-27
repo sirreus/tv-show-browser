@@ -51,7 +51,7 @@ describe('Render Home page tests', () => {
     setupComponent()
 
     const showCardsArr = screen.getAllByTestId('show-card')
-    expect(showCardsArr.length).toHaveLength(28)
+    expect(showCardsArr).toHaveLength(28)
   })
 
   it('Pagination should be displayed on the page', () => {
