@@ -32,9 +32,9 @@ const TvShowPage = () => {
 
   return (
     <PageWrap>
-      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
+      <Logo onClick={() => navigate('/')}>GalaxyPlex</Logo>
       <PageHeader>
-        <GoBackButton data-testid="go-back-button" onClick={() => navigate(routes.main)}>
+        <GoBackButton data-testid="go-back-button" onClick={() => navigate('/')}>
           <GoBackButtonIcon />
         </GoBackButton>
         <PageTitle>{showInfo?.name}</PageTitle>

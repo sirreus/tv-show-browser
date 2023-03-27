@@ -9,7 +9,7 @@ const FavoriteCard = ({ data, toggleFavorites, isFavorite }) => {
   return (
     <CardWrap>
       <FavoriteIcon onClick={toggleFavorites} isFavorite={isFavorite} />
-      <CardImg url={data.image.original} onClick={() => navigate(`/tv-show/${data.id}`)}>
+      <CardImg url={data.image.original} onClick={() => navigate(`tv-show/${data.id}`)}>
         <CardTitle id="card-title">{data.name}</CardTitle>
       </CardImg>
     </CardWrap>
