@@ -4,12 +4,40 @@ export const PageHeaderWrap = styled.div`
   display: flex;
   flex-direction: ${(p) => (p.isMobile ? 'column' : 'row')};
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 
   @media (max-width: 375px) {
     flex-direction: column;
   }
+`
+
+export const HeaderTextWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 375px) {
+    align-items: center;
+  }
+`
+
+export const HeaderTitle = styled.h1`
+  font-size: 28px;
+  font-weight: 500;
+  margin: 8px 0;
+`
+
+export const HeaderSubtitle = styled.h4`
+  font-size: 16px;
+  font-weight: 300;
+  margin: 8px 0;
+`
+
+export const SectionTitle = styled.h2`
+  font-size: 24px;
+  font-weight: 400;
+  margin: 12px 0;
 `
 
 export const FavoriteBlock = styled.div`
@@ -45,6 +73,10 @@ export const FavoritesList = styled.div`
   @media (max-width: 375px) {
     gap: 0 8px;
   }
+`
+export const TvShowSection = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 export const ShowList = styled.div`

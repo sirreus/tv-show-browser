@@ -18,6 +18,11 @@ import {
   Pagination,
   ShowMoreButton,
   Notification,
+  HeaderTextWrap,
+  HeaderSubtitle,
+  HeaderTitle,
+  SectionTitle,
+  TvShowSection,
 } from './style'
 import './pagination.css'
 
@@ -82,7 +87,10 @@ const HomePage = () => {
   return (
     <PageWrap isMobile={isMobile}>
       <PageHeaderWrap isMobile={isMobile}>
-        <h2 data-testid="home-title">Welcome to GalaxyPlex!</h2>
+        <HeaderTextWrap>
+          <HeaderTitle data-testid="home-title">Welcome to GalaxyPlex!</HeaderTitle>
+          <HeaderSubtitle>Your best partner in crime</HeaderSubtitle>
+        </HeaderTextWrap>
         <SearchBar />
       </PageHeaderWrap>
 
@@ -95,7 +103,7 @@ const HomePage = () => {
       {/* FAVORITES SECTION */}
       {Object.values(favoritesShow).length ? (
         <FavoriteBlock>
-          <h2>My Favorites</h2>
+          <SectionTitle>My Favorites</SectionTitle>
           <FavoritesList>
             {Object.values(favoritesShow).map((show) => (
               <FavoriteCard
@@ -115,8 +123,8 @@ const HomePage = () => {
 
       {/* TV SHOW SECTION */}
       {displayedShows && !error && (
-        <>
-          <h2>TV Shows</h2>
+        <TvShowSection>
+          <SectionTitle>TV Shows</SectionTitle>
           <ShowList data-testid="show-list">
             {displayedShows.map((show) => (
               <ShowCard
@@ -129,7 +137,7 @@ const HomePage = () => {
               />
             ))}
           </ShowList>
-        </>
+        </TvShowSection>
       )}
 
       {/* PAGINATION SECTION */}

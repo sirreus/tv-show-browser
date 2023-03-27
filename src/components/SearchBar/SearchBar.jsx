@@ -62,7 +62,7 @@ const SearchBar = () => {
       <Overlay isVisible={isOverlayVisible} />
       <div
         data-testid="search-bar"
-        style={{ position: 'relative' }}
+        style={{ position: 'relative', marginTop: '8px' }}
         onBlur={() => {
           setTimeout(() => {
             setSearchInput('')
