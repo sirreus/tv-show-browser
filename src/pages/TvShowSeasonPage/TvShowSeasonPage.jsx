@@ -56,10 +56,10 @@ const TvShowSeasonPage = () => {
     <PageWrap>
       <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
       <PageHeader>
-        <GoBackButton onClick={() => navigate(-1)}>
+        <GoBackButton data-testid="go-back-button" onClick={() => navigate(-1)}>
           <GoBackButtonIcon />
         </GoBackButton>
-        <PageTitle>{`${showInfo?.name} / Season ${seasonNumber} ${episodesAmount}`}</PageTitle>
+        <PageTitle data-testid="page-title">{`${showInfo?.name} / Season ${seasonNumber} ${episodesAmount}`}</PageTitle>
       </PageHeader>
 
       {showSeasonsError && (
@@ -68,21 +68,21 @@ const TvShowSeasonPage = () => {
 
       {currentSeason && !showSeasonsError && (
         <InfoBlock>
-          <Cover url={currentSeason?.image?.original} />
-          <SeasonEpisodeInfoWrapper>
-            <InfoBlockTitle>
+          <Cover data-testid="season-cover" url={currentSeason?.image?.original} />
+          <SeasonEpisodeInfoWrapper data-testid="season-details">
+            <InfoBlockTitle data-testid="info-block-title">
               <BoldText>
                 {`Season premiere date:`}
                 <Text>{currentSeason?.premiereDate}</Text>
               </BoldText>
             </InfoBlockTitle>
 
-            <SeasonEpisodeList>
+            <SeasonEpisodeList data-testid="season-episodes-list">
               {SeasonsEpisodesError && <Alert>List of Episodes doesn't loaded</Alert>}
               {seasonsEpisodes &&
                 !SeasonsEpisodesError &&
                 seasonsEpisodes.map((episode) => (
-                  <div key={episode?.number}>
+                  <div key={episode?.number} data-testid="season-episode">
                     <BoldText
                       onClick={() =>
                         navigate(

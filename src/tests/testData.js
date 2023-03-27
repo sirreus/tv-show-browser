@@ -2271,10 +2271,304 @@ const showSeasonData = {
   ],
 }
 
+const showSeasonEpisodesData = {
+  data: [
+    {
+      id: 1499,
+      url: 'https://www.tvmaze.com/episodes/1499/californication-4x01-exile-on-main-st',
+      name: 'Exile on Main St.',
+      season: 4,
+      number: 1,
+      type: 'regular',
+      airdate: '2011-01-09',
+      airtime: '21:30',
+      airstamp: '2011-01-10T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8.3 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243046.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243046.jpg',
+      },
+      summary:
+        '<p>Hank is bailed out of jail to find that his literary sex scandal has made him the toast of Hollywood and the target of a lawsuit - as well as estranged him from Karen and Becca.</p>',
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1499' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1500,
+      url: 'https://www.tvmaze.com/episodes/1500/californication-4x02-suicide-solution',
+      name: 'Suicide Solution',
+      season: 4,
+      number: 2,
+      type: 'regular',
+      airdate: '2011-01-16',
+      airtime: '21:30',
+      airstamp: '2011-01-17T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8.6 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243047.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243047.jpg',
+      },
+      summary:
+        "<p>Hank polishes off a day of flaky neediness with a creative meeting about his potential new movie that ends with him hiding in a starlet's bathroom and accidentally overdosing on booze and sleeping pills.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1500' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1501,
+      url: 'https://www.tvmaze.com/episodes/1501/californication-4x03-home-sweet-home',
+      name: 'Home Sweet Home',
+      season: 4,
+      number: 3,
+      type: 'regular',
+      airdate: '2011-01-23',
+      airtime: '21:30',
+      airstamp: '2011-01-24T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 7.7 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243048.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243048.jpg',
+      },
+      summary:
+        '<p>Hank takes advantage of the misperception that he tried to commit suicide and moves back home with Karen and Becca, but his daughter knows the truth; Charlie sets out to reach a sexual benchmark while a wealthy producer pursues Marcy.</p>',
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1501' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1502,
+      url: 'https://www.tvmaze.com/episodes/1502/californication-4x04-monkey-business',
+      name: 'Monkey Business',
+      season: 4,
+      number: 4,
+      type: 'regular',
+      airdate: '2011-01-30',
+      airtime: '21:30',
+      airstamp: '2011-01-31T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8.1 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243049.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243049.jpg',
+      },
+      summary:
+        "<p>A meeting to discuss Hank's recently completed movie script ends with a billionaire dead in a bathroom; Marcy suspects that she might be pregnant; Karen meets a potential new boyfriend in the artist father of one of Becca's bandmates.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1502' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1503,
+      url: 'https://www.tvmaze.com/episodes/1503/californication-4x05-freeze-frame',
+      name: 'Freeze-Frame',
+      season: 4,
+      number: 5,
+      type: 'regular',
+      airdate: '2011-02-06',
+      airtime: '21:30',
+      airstamp: '2011-02-07T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 7.9 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243050.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243050.jpg',
+      },
+      summary:
+        "<p>After a personal grooming mishap, Charlie discovers that his vasectomy was botched and that Marcy's baby could be his; Hank's relationship with lawyer Abby gets more personal but a good deed yields a compromising photo that could ruin Hank's life.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1503' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1504,
+      url: 'https://www.tvmaze.com/episodes/1504/californication-4x06-lawyers-guns-and-money',
+      name: 'Lawyers, Guns and Money',
+      season: 4,
+      number: 6,
+      type: 'regular',
+      airdate: '2011-02-13',
+      airtime: '21:30',
+      airstamp: '2011-02-14T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 7.8 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243051.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243051.jpg',
+      },
+      summary:
+        "<p>A sensational photo derails Hank's case and threatens to destroy his movie project until his sincere love for Becca rescues his career, while Karen resuscitates her ex-husband's relationship with his beautiful lawyer.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1504' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1505,
+      url: 'https://www.tvmaze.com/episodes/1505/californication-4x07-the-recused',
+      name: 'The Recused',
+      season: 4,
+      number: 7,
+      type: 'regular',
+      airdate: '2011-02-20',
+      airtime: '21:30',
+      airstamp: '2011-02-21T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8.1 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243052.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243052.jpg',
+      },
+      summary:
+        "<p>Forced by her relationship with Hank to recuse herself as his lawyer, Abby pitches the case to a senior partner on the golf course; Hank is dismayed by Karen's growing relationship with artist Ben; Marcy and Stu ask Charlie to help them pitch a TV project.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1505' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1506,
+      url: 'https://www.tvmaze.com/episodes/1506/californication-4x08-lights-camera-asshole',
+      name: 'Lights. Camera. Asshole',
+      season: 4,
+      number: 8,
+      type: 'regular',
+      airdate: '2011-02-27',
+      airtime: '21:30',
+      airstamp: '2011-02-28T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243053.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243053.jpg',
+      },
+      summary:
+        "<p>Hank takes a gig rewriting dialogue on a zombie sequel but threatens his job when he hooks up with a sexy woman with close ties to the film's female lead; Marcy tells Stu she's pregnant but not that the baby may be Charlie's.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1506' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1507,
+      url: 'https://www.tvmaze.com/episodes/1507/californication-4x09-another-perfect-day',
+      name: 'Another Perfect Day',
+      season: 4,
+      number: 9,
+      type: 'regular',
+      airdate: '2011-03-06',
+      airtime: '21:30',
+      airstamp: '2011-03-07T02:30:00+00:00',
+      runtime: 30,
+      rating: { average: 7.8 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243054.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243054.jpg',
+      },
+      summary:
+        "<p>Evicted from his apartment, Hank moves back in with Karen and Becca while he prepares for his trial and teaches his daughter to drive; while Karen's out on a date with Ben, Becca and Pearl steal the Porsche and wreck it.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1507' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1508,
+      url: 'https://www.tvmaze.com/episodes/1508/californication-4x10-the-trial',
+      name: 'The Trial',
+      season: 4,
+      number: 10,
+      type: 'regular',
+      airdate: '2011-03-13',
+      airtime: '21:30',
+      airstamp: '2011-03-14T01:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243055.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243055.jpg',
+      },
+      summary:
+        "<p>A nervous Hank discovers that he's got good reason to panic when his trial turns into an all-out character assassination, with even friendly witnesses Charlie and Karen unable to portray him as anything other than a drunken, oversexed lout.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1508' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1509,
+      url: 'https://www.tvmaze.com/episodes/1509/californication-4x11-the-last-supper',
+      name: 'The Last Supper',
+      season: 4,
+      number: 11,
+      type: 'regular',
+      airdate: '2011-03-20',
+      airtime: '21:30',
+      airstamp: '2011-03-21T01:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243056.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243056.jpg',
+      },
+      summary:
+        '<p>Found guilty of statutory rape, Hank buys a used Porsche and considers fleeing from Los Angeles, but instead enjoys one last night in the company of his friends and family.</p>',
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1509' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+    {
+      id: 1510,
+      url: 'https://www.tvmaze.com/episodes/1510/californication-4x12-and-justice-for-all',
+      name: '...And Justice for All',
+      season: 4,
+      number: 12,
+      type: 'regular',
+      airdate: '2011-03-27',
+      airtime: '21:30',
+      airstamp: '2011-03-28T01:30:00+00:00',
+      runtime: 30,
+      rating: { average: 8.1 },
+      image: {
+        medium: 'https://static.tvmaze.com/uploads/images/medium_landscape/97/243057.jpg',
+        original:
+          'https://static.tvmaze.com/uploads/images/original_untouched/97/243057.jpg',
+      },
+      summary:
+        "<p>As Hank awaits sentencing, the lines between his real life and the movie based on his life blur as the film's star hits on his ex-wife and he feels stirrings of passion for the actress hired to play Karen.</p>",
+      _links: {
+        self: { href: 'https://api.tvmaze.com/episodes/1510' },
+        show: { href: 'https://api.tvmaze.com/shows/28' },
+      },
+    },
+  ],
+}
+
 module.exports = {
   searchData,
   fetchData,
   fetchDataFull,
   showData,
   showSeasonData,
+  showSeasonEpisodesData,
 }
