@@ -29,17 +29,19 @@ describe('Render TV SHow page', () => {
     api.getTvShowSeasons.mockReturnValue(showSeasonData)
   })
 
-  test('show data should be displayed on the page', () => {
+  it('show data should be displayed on the page', () => {
     setupComponent()
 
     expect(screen.getByText(showData.data.name)).toBeInTheDocument()
     expect(screen.getByTestId('show-cover')).toBeInTheDocument()
     expect(screen.getByTestId('show-details')).toBeInTheDocument()
     expect(screen.getByTestId('show-seasons-list')).toBeInTheDocument()
-    expect(screen.getAllByTestId('show-season').length).toBe(showSeasonData.data.length)
+    expect(screen.getAllByTestId('show-season').length).toHaveLength(
+      showSeasonData.data.length
+    )
   })
 
-  test('click on season button should navigate to season page', () => {
+  it('click on season button should navigate to season page', () => {
     setupComponent()
 
     const randomSeason = random(1, showSeasonData.data.length)
@@ -53,7 +55,7 @@ describe('Render TV SHow page', () => {
     )
   })
 
-  test('click on logo should navigate to Home page', () => {
+  it('click on logo should navigate to Home page', () => {
     setupComponent()
 
     const logo = screen.getByText('GalaxyPlex')
@@ -63,7 +65,7 @@ describe('Render TV SHow page', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/')
   })
 
-  test('click on back button should navigate to Home page', () => {
+  it('click on back button should navigate to Home page', () => {
     setupComponent()
 
     const goBackButton = screen.getByTestId('go-back-button')

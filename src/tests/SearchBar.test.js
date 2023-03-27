@@ -24,7 +24,7 @@ describe('Search bar', () => {
     api.getSearch.mockReturnValue(searchData)
   })
 
-  test('search bar should be available to type', () => {
+  it('search bar should be available to type', () => {
     setupComponent()
 
     const inputEl = screen.getByTestId('search-input')
@@ -34,7 +34,7 @@ describe('Search bar', () => {
     expect(inputEl).toHaveValue(inputName)
   })
 
-  test('suggestion list should be displayed after fill input', () => {
+  it('suggestion list should be displayed after fill input', () => {
     setupComponent()
 
     const inputEl = screen.getByTestId('search-input')
@@ -45,7 +45,7 @@ describe('Search bar', () => {
     expect(suggestListEl).toBeDefined()
   })
 
-  test('suggestion list should contain 10 first matches', () => {
+  it('suggestion list should contain 10 first matches', () => {
     setupComponent()
 
     const inputEl = screen.getByTestId('search-input')
@@ -53,6 +53,6 @@ describe('Search bar', () => {
     fireEvent.change(inputEl, { target: { value: inputName } })
 
     const suggestListItemEl = screen.getAllByTestId('suggest-list-item')
-    expect(suggestListItemEl.length).toBe(10)
+    expect(suggestListItemEl.length).toHaveLength(10)
   })
 })

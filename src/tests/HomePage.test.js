@@ -27,40 +27,40 @@ describe('Render Home page tests', () => {
     api.getSearch.mockReturnValue(searchData)
   })
 
-  test('page title should be displayed on the page', () => {
+  it('page title should be displayed on the page', () => {
     setupComponent()
 
     const titleEl = screen.getByTestId('home-title')
     expect(titleEl).toHaveTextContent('Welcome to GalaxyPlex!')
   })
 
-  test('Search bar should be displayed on the page', () => {
+  it('Search bar should be displayed on the page', () => {
     setupComponent()
 
     expect(screen.getByTestId('search-bar')).toBeInTheDocument()
   })
 
-  test('TV Shows section should be displayed on the page', () => {
+  it('TV Shows section should be displayed on the page', () => {
     setupComponent()
 
     expect(screen.getByText('TV Shows')).toBeInTheDocument()
     expect(screen.getByTestId('show-list')).toBeInTheDocument()
   })
 
-  test('Amount of displayed Shows should be equal 28', () => {
+  it('Amount of displayed Shows should be equal 28', () => {
     setupComponent()
 
     const showCardsArr = screen.getAllByTestId('show-card')
-    expect(showCardsArr.length).toBe(28)
+    expect(showCardsArr.length).toHaveLength(28)
   })
 
-  test('Pagination should be displayed on the page', () => {
+  it('Pagination should be displayed on the page', () => {
     setupComponent()
 
     expect(screen.getByTestId('pagination')).toBeInTheDocument()
   })
 
-  test('Click on Show card should navigate to this TV Show page', () => {
+  it('Click on Show card should navigate to this TV Show page', () => {
     setupComponent()
 
     const randomCard = random(0, fetchDataFull.data.length - 1)

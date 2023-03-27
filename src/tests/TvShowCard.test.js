@@ -16,7 +16,7 @@ const setupComponent = () => {
 }
 
 describe('Render TV Show card', () => {
-  test('basic show data should displayed in component', () => {
+  it('basic show data should displayed in component', () => {
     setupComponent()
 
     const showData = fetchData.data[0]
@@ -32,7 +32,7 @@ describe('Render TV Show card', () => {
     )
   })
 
-  test('click on show card should navigate to Show page', () => {
+  it('click on show card should navigate to Show page', () => {
     setupComponent()
 
     const showData = fetchData.data[0]
