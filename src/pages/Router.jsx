@@ -6,6 +6,8 @@ import HomePage from './HomePage'
 import TvShowPage from './TvShowPage'
 import TvShowSeasonPage from './TvShowSeasonPage'
 import TvShowEpisodePage from './TvShowEpisodePage'
+import NotFoundPage from './NotFoundPage'
+
 import routes from '../routes'
 
 const history = createBrowserHistory()
@@ -18,6 +20,8 @@ const Router = () => {
       <Route path={routes.tvShow} element={<TvShowPage />} />
       <Route path={routes.tvShowSeason} element={<TvShowSeasonPage />} />
       <Route path={routes.tvShowEpisode} element={<TvShowEpisodePage />} />
+
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
