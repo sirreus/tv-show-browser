@@ -15,8 +15,6 @@ import {
 } from '../../globalStyles'
 import { ShowDetails, ShowDetailsText, ShowSeasonLink, ShowSeasonList } from './style'
 
-import routes from '../../routes'
-
 const TvShowPage = () => {
   const navigate = useNavigate()
   const { id } = useParams()
