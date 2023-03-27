@@ -15,7 +15,6 @@ import {
   Alert,
   Logo,
 } from '../../globalStyles'
-import routes from '../../routes'
 import { SeasonEpisodeInfoWrapper, SeasonEpisodeList, BoldText, Text } from './style'
 
 const TvShowSeasonPage = () => {

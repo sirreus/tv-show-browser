@@ -18,7 +18,6 @@ import {
   Logo,
 } from '../../globalStyles'
 import { Airstamp, EpisodeCover } from './style'
-import routes from '../../routes'
 
 const TvShowEpisodePage = () => {
   const navigate = useNavigate()
