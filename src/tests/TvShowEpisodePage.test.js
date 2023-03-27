@@ -23,8 +23,6 @@ const setupComponent = () => {
   return render(<TvShowEpisodePage />)
 }
 
-const random = (min, max) => Math.floor(Math.random() * (max - min)) + min
-
 describe('Render TV SHow Episode page', () => {
   const seasonNumber = '4'
   const episodeNumber = '2'
