@@ -20,6 +20,7 @@ export const Input = styled.input`
   display: flex;
   flex-direction: column;
   width: 180px;
+  transition: width 0.5s;
   height: fit-content;
   padding: 8px 12px;
   border-radius: 8px;

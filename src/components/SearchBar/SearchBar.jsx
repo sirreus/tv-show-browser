@@ -41,7 +41,7 @@ const SearchBar = () => {
       updateLastSearch(show)
     }
 
-    navigate(`/tv-show/${show.id}`)
+    navigate(`show/${show.id}`)
   }
 
   const { data } = api.getSearch({ searchInput })
@@ -64,8 +64,11 @@ const SearchBar = () => {
         data-testid="search-bar"
         style={{ position: 'relative' }}
         onBlur={() => {
-          setLastSearch([])
-          setOverlayVisible(false)
+          setTimeout(() => {
+            setSearchInput('')
+            setLastSearch([])
+            setOverlayVisible(false)
+          }, 300)
         }}
       >
         <Input
@@ -75,11 +78,6 @@ const SearchBar = () => {
           value={searchInput}
           onChange={(e) => handleChange(e.target)}
           onFocus={() => fetchLastSearch()}
-          onBlur={() => {
-            setSearchInput('')
-            setLastSearch([])
-            setOverlayVisible(false)
-          }}
         />
         <SearchIcon />
 
