@@ -13,7 +13,7 @@ const ShowCard = ({ data, toggleFavorites, isFavorite }) => {
       <FavoriteIcon onClick={toggleFavorites} isFavorite={isFavorite} />
       <CardImg
         data-testid={`show-img-${data.id}`}
-        url={data.image.original}
+        url={data.image.medium}
         onClick={() => navigate(`tv-show/${data.id}`)}
       >
         <CardTitle data-testid="show-name">{data.name}</CardTitle>

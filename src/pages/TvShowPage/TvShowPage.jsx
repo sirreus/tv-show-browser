@@ -58,7 +58,9 @@ const TvShowPage = () => {
                 {showSeasons.map((season) => (
                   <ShowSeasonLink
                     data-testid="show-season"
-                    onClick={() => navigate(`/tv-show/${id}/season/${season.number}`)}
+                    onClick={() =>
+                      navigate(`/tv-app/tv-show/${id}/season/${season.number}`)
+                    }
                     key={season.id}
                   >
                     {`Season ${season?.number}`}

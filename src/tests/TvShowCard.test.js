@@ -22,7 +22,7 @@ describe('Render TV Show card', () => {
     const showData = fetchData.data[0]
 
     expect(screen.getByTestId(`show-img-${showData.id}`)).toHaveStyle(
-      `background-image: url(${showData.image.original})`
+      `background-image: url(${showData.image.medium})`
     )
     expect(screen.getByTestId('show-name')).toHaveTextContent(showData.name)
     expect(screen.getByTestId('show-info')).toHaveTextContent(

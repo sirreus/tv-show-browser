@@ -71,7 +71,7 @@ const TvShowEpisodePage = () => {
 
   return (
     <PageWrap>
-      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
+      <Logo onClick={() => navigate('/')}>GalaxyPlex</Logo>
       <PageHeader>
         <GoBackButton data-testid="go-back-button" onClick={() => navigate(-1)}>
           <GoBackButtonIcon />

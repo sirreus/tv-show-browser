@@ -62,7 +62,7 @@ describe('Render TV SHow Episode page', () => {
 
     fireEvent.click(logo)
 
-    expect(mockNavigate).toHaveBeenCalledWith('tv-app/')
+    expect(mockNavigate).toHaveBeenCalledWith('/')
   })
 
   it('click on back button should navigate to Home page', () => {

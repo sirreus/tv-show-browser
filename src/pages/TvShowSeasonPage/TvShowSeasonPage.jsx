@@ -54,7 +54,7 @@ const TvShowSeasonPage = () => {
 
   return (
     <PageWrap>
-      <Logo onClick={() => navigate(routes.main)}>GalaxyPlex</Logo>
+      <Logo onClick={() => navigate('/')}>GalaxyPlex</Logo>
       <PageHeader>
         <GoBackButton data-testid="go-back-button" onClick={() => navigate(-1)}>
           <GoBackButtonIcon />
@@ -86,7 +86,7 @@ const TvShowSeasonPage = () => {
                     <BoldText
                       onClick={() =>
                         navigate(
-                          `/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
+                          `/tv-app/tv-show/${id}/season/${seasonNumber}/episode/${episode?.number}`
                         )
                       }
                     >
