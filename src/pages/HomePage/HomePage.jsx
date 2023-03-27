@@ -14,7 +14,6 @@ import {
   ShowList,
   FavoritesList,
   FavoriteBlock,
-  FavoriteBlockWrapper,
   PageHeaderWrap,
   Pagination,
   ShowMoreButton,
@@ -97,20 +96,18 @@ const HomePage = () => {
       {Object.values(favoritesShow).length ? (
         <FavoriteBlock>
           <h2>My Favorites</h2>
-          <FavoriteBlockWrapper>
-            <FavoritesList>
-              {Object.values(favoritesShow).map((show) => (
-                <FavoriteCard
-                  data={show}
-                  key={show.id}
-                  toggleFavorites={() => toggleFavoritesHandler(show)}
-                  isFavorite={Boolean(
-                    Object.values(favoritesShow).find((item) => item?.id === show?.id)
-                  )}
-                />
-              ))}
-            </FavoritesList>
-          </FavoriteBlockWrapper>
+          <FavoritesList>
+            {Object.values(favoritesShow).map((show) => (
+              <FavoriteCard
+                data={show}
+                key={show.id}
+                toggleFavorites={() => toggleFavoritesHandler(show)}
+                isFavorite={Boolean(
+                  Object.values(favoritesShow).find((item) => item?.id === show?.id)
+                )}
+              />
+            ))}
+          </FavoritesList>
         </FavoriteBlock>
       ) : null}
 

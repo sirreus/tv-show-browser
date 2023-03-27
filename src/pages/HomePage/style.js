@@ -12,15 +12,19 @@ export const PageHeaderWrap = styled.div`
   }
 `
 
-export const FavoriteBlockWrapper = styled.div`
-  width: inherit;
-`
-
 export const FavoriteBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: inherit;
+  max-width: 1024px;
   margin: 32px auto;
+
+  @media (max-width: 1024px) {
+    width: 96vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 94vw;
+  }
 
   @media (max-width: 375px) {
     width: 100%;
@@ -48,18 +52,24 @@ export const ShowList = styled.div`
   grid-template-columns: 240px 240px 240px 240px;
   gap: 16px 16px;
 
-  @media (max-width: 1010px) {
-    grid-template-columns: repeat(3, 240px);
-    gap: 24px 24px;
+  width: fit-content;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 30vw);
   }
 
-  @media (max-width: 770px) {
-    grid-template-columns: repeat(2, 375px);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 47vw);
     gap: 8px 8px;
   }
 
+  @media (max-width: 512px) {
+    grid-template-columns: repeat(1, 95vw);
+    gap: 16px 0;
+  }
+
   @media (max-width: 375px) {
-    grid-template-columns: repeat(1, 100%);
     gap: 8px 0;
   }
 `

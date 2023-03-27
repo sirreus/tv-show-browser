@@ -4,8 +4,17 @@ import arrowIcon from './assets/arrow-go-back.svg'
 export const PageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${(p) => (p.isMobile ? '95vw' : '1024px')};
+  max-width: ${(p) => (p.isMobile ? '95vw' : '1024px')};
+  // width: 100%;
   margin: 32px auto;
+
+  @media (max-width: 1024px) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 
   @media (max-width: 375px) {
     width: 95vw;
@@ -73,12 +82,15 @@ export const InfoBlock = styled.div`
   background: ghostwhite;
   padding: ${(p) => (p.paddingAside ? `0 ${p.paddingAside}px` : null)};
 
-  @media (max-width: 800px) {
-    flex-direction: column;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min-content;
   }
 
   @media (max-width: 450px) {
     margin: 0 8px;
+    flex-direction: column;
   }
   @media (max-width: 375px) {
     margin: 0;
