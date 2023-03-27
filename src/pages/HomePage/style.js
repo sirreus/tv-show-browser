@@ -16,6 +16,7 @@ export const FavoriteBlock = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1024px;
+  width: 100%;
   margin: 32px auto;
 
   @media (max-width: 1024px) {
