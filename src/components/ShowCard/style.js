@@ -19,6 +19,14 @@ export const CardWrap = styled.div`
   &:hover {
     box-shadow: 0 0 14px #374149;
     opacity: 1;
+
+    #show-name {
+      opacity: 1;
+    }
+
+    #show-info {
+      display: flex;
+    }
   }
 `
 
@@ -63,7 +71,7 @@ export const CardTitle = styled.div`
 `
 
 export const CardInfo = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 100%;
   margin: 8px -8px -8px -8px;
@@ -71,7 +79,6 @@ export const CardInfo = styled.div`
   border-radius: 0 0 8px 8px;
   background: white;
   color: black;
-  opacity: 0.9;
 `
 
 export const CardInfoText = styled.div`
